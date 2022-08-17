@@ -1,15 +1,16 @@
 .gallery {
-    
-    display: grid;
-   
-  grid-template-columns: 1fr 1fr ;
-grid-template-rows:  1fr 1fr;
-  padding: 10px;
+
+    display: grid ; 
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  padding: 51px;
+  border-radius: 2%;
 }
  
 
 .imgdiv{
-    background-color: black;
-width: 200px;
-height: 200px;
+   border: 6px;
+   border-style: solid;
+    border-radius: 5%;
+   
 }
+
