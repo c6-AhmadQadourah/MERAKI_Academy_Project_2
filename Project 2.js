@@ -80,9 +80,11 @@ const galleryloop = () => {
       console.log(galleryall);
       fav.push(galleryall);
       this.disabled = true;
+      localStorage.setItem( 'fav' , JSON.stringify(fav))
     });
-    //-------------------
-
+    
+    //------------------------------------------------------
+  
     // -------------css--------------
     $(favbutton).hide();
     $(imgdiv).append(imageid);
@@ -150,3 +152,4 @@ const back = $(".h1").on("click", () => {
   singlediv.hide();
   galleryloop();
 });
+
