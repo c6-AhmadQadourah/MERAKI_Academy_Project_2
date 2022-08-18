@@ -41,25 +41,31 @@ As a master of Three Sword Style, a swordsmanship style which he created during 
 ];
 
 const galleryloop = () => {
-
   for (i = 0; i < gallery.length; i++) {
     const title = $(`<h2>${gallery[i].title} <h2>`);
+
+    // --------------img things -------------------------------
     const imgdiv = $(`<div ></div>`);
     $(imgdiv).addClass("imgdiv");
     const image = $(`<img src=${gallery[i].image} />`);
     const imageid = $(`<id>${gallery[i].id} </id>`);
+    // -------------------------------------------------------
 
+    // --------------disctreption things ------------------
     const discreption = gallery[i].discreption.substring(0, 50);
-    const discreptiondiv= $(`<div></div>`)
-    $(discreptiondiv).addClass("discreptiondiv")
-    discreptiondiv.append(discreption)
-
+    const discreptiondiv = $(`<div></div>`);
+    $(discreptiondiv).addClass("discreptiondiv");
+    discreptiondiv.append(discreption);
 
     const fulldiscreption = gallery[i].discreption;
-    
+    // --------------------------
+
+    // -------------css--------------
     image.append(imageid);
     $(imgdiv).append(title);
     $(title).css("text-align", "center");
+    $(title).css("position", "relative");
+    $(title).css({ left: 80 })
     $(imgdiv).append(image);
 
     $(imgdiv).append(discreptiondiv);
@@ -71,36 +77,30 @@ const galleryloop = () => {
     $(image).css("width", "400");
     $(image).height("400");
     $(image).css("border-radius", "10%");
+    //-------------------------------------------
 
     const seemore = $(image).on("click", () => {
       $(`.gallery`).css("display", "block");
       $(".imgdiv ").hide();
       $(imgdiv).show();
 
+      $(image).css("position", "relative");
+      $(image).css({ left: 700 });
 
-      $(image).css('position' ,'relative')
-      $(image).css({left : 700})
-       
-      $(".discreptiondiv").css("text-align", "center")
-      $(".discreptiondiv").css("position", "relative")
-     $(".discreptiondiv").append(fulldiscreption)
-    
-
-
-    
-      $(title).css("width", "100%")
-
-    
+      $(".discreptiondiv").css("text-align", "center");
+      $(".discreptiondiv").css("position", "relative");
       
       
+      $(".discreptiondiv").text(fulldiscreption);
+      $(title).css({ left: 5 })
+      $(title).css("width", "100%");
     });
   }
 };
 galleryloop();
 
-const back = $('.h1').on('click' , ()=> {
+const back = $(".h1").on("click", () => {
   $(".imgdiv ").hide();
-   galleryloop()
-} )
-  
+  galleryloop();
+});
 
