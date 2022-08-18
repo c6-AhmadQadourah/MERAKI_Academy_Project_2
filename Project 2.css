@@ -8,7 +8,7 @@
 
 .gallery {
   background-image: url(https://free4kwallpapers.com/uploads/wallpaper-cache/cool-black-backgrounds-1300x0-MM-100.jpg);
-    display: grid ; 
+    display: grid ;  
   grid-template-columns: 1fr 1fr 1fr 1fr ;
   padding: 51px;
   border-radius: 2%;
