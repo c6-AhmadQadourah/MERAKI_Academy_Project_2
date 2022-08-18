@@ -60,7 +60,7 @@ padding-top: 20px;
 
 .singlediv{
  display:flex; 
- 
+ flex-direction: column-reverse;
  
   background-image: url(https://free4kwallpapers.com/uploads/wallpaper-cache/cool-black-backgrounds-1300x0-MM-100.jpg);
   
@@ -70,3 +70,13 @@ padding-top: 20px;
   border-radius: 2%;
   word-wrap: initial;
 } 
+
+.favbutton{
+  font-size: large;
+    font-weight: bold;
+    background: linear-gradient(to right, #bd7e68, #549cc9, #7a7dd9);
+    border-radius: 4px;
+    padding: 10px;
+    color: rgb(16, 16, 5);
+    margin: 6px;
+}

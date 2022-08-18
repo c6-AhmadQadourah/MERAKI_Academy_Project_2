@@ -2,12 +2,15 @@ const body = $("body");
 $(body).addClass("body");
 const categorydiv = $(".categories");
 const gallerydiv = $(".gallery");
-const singlediv=$('.singlediv')
-singlediv.hide()
+const singlediv = $(".singlediv");
+singlediv.hide();
+const fav = [];
+
+//---------- Date and time-------------
 const date = new Date();
 date.setFullYear(2022);
 $(".p1").append(date);
-
+//-----------------
 const gallery = [
   {
     image:
@@ -41,35 +44,55 @@ As a master of Three Sword Style, a swordsmanship style which he created during 
   },
 ];
 
+
+    
+   
+
 const galleryloop = () => {
   for (i = 0; i < gallery.length; i++) {
     const title = $(`<h2>${gallery[i].title} <h2>`);
+    
 
     // --------------img things -------------------------------
     const imgdiv = $(`<div ></div>`);
     $(imgdiv).addClass("imgdiv");
     const image = $(`<img src=${gallery[i].image} />`);
     const imageid = $(`<id>${gallery[i].id} </id>`);
+    
     // -------------------------------------------------------
-
+    
     // --------------disctreption things ------------------
     const discreption = gallery[i].discreption.substring(0, 50);
     const discreptiondiv = $(`<div></div>`);
     $(discreptiondiv).addClass("discreptiondiv");
-    discreptiondiv.append(discreption);
-
+    discreptiondiv.append(discreption); 
     const fulldiscreption = gallery[i].discreption;
 
-    
     // --------------------------
+  
+//-------------------- FAV----------------------
+
+    const favbutton = $(`<button id=   ${gallery[i].id}   > Add To Favorite </button>`);
     
+    $(favbutton).addClass("favbutton");  
+    imgdiv.append(favbutton);
+
+    favbutton.on("click", function () {
+      console.log(this);  
+      fav.push(imgdiv);   
+      this.disabled=true
+    });
+ //-------------------
+
+
     // -------------css--------------
-    image.append(imageid);
+    $(favbutton).hide()  
+    $(imgdiv).append(imageid); 
     $(imgdiv).append(title);
     $(title).css("text-align", "center");
     $(title).css("position", "relative");
     $(title).css({ left: 80 });
-    $(imgdiv).append(image);
+    $(imgdiv).append(image); 
 
     $(imgdiv).append(discreptiondiv);
     $(`.gallery`).append($(imgdiv));
@@ -82,17 +105,19 @@ const galleryloop = () => {
     $(image).css("border-radius", "10%");
     //-------------------------------------------
     
-
-   
-
+      
+     
+    
     // ----------------- info page -------
     const seemore = $(image).on("click", () => {
+      
       $(gallerydiv).hide();
       $(".imgdiv ").hide();
+      $(favbutton).show() 
       $(imgdiv).show();
-      $(".discreptiondiv").text(fulldiscreption); 
-      singlediv.append(imgdiv)
-      singlediv.show() 
+      $(".discreptiondiv").text(fulldiscreption);
+      singlediv.append(imgdiv);
+      singlediv.show();
       $(image).css("position", "relative");
       $(image).css({ left: 700 });
 
@@ -102,6 +127,14 @@ const galleryloop = () => {
       $(".discreptiondiv").text(fulldiscreption);
       $(title).css({ left: 5 });
       $(title).css("width", "100%");
+      $(favbutton).css("position", "relative");
+      $(favbutton).css({ left:  825 });
+
+
+
+
+
+
 
       /*
       $(`.gallery`).css("display", "block");
@@ -118,6 +151,9 @@ const galleryloop = () => {
       $(title).css({ left: 5 });
       $(title).css("width", "100%");
      */
+
+     
+
     });
   }
 };
@@ -127,7 +163,8 @@ galleryloop();
 
 const back = $(".h1").on("click", () => {
   $(".imgdiv ").hide();
+  singlediv.hide();
   galleryloop();
-});
+}); 
 
 
