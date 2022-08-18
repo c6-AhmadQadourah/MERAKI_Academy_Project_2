@@ -2,7 +2,8 @@ const body = $("body");
 $(body).addClass("body");
 const categorydiv = $(".categories");
 const gallerydiv = $(".gallery");
-
+const singlediv=$('.singlediv')
+singlediv.hide()
 const date = new Date();
 date.setFullYear(2022);
 $(".p1").append(date);
@@ -58,14 +59,16 @@ const galleryloop = () => {
     discreptiondiv.append(discreption);
 
     const fulldiscreption = gallery[i].discreption;
-    // --------------------------
 
+    
+    // --------------------------
+    
     // -------------css--------------
     image.append(imageid);
     $(imgdiv).append(title);
     $(title).css("text-align", "center");
     $(title).css("position", "relative");
-    $(title).css({ left: 80 })
+    $(title).css({ left: 80 });
     $(imgdiv).append(image);
 
     $(imgdiv).append(discreptiondiv);
@@ -78,8 +81,29 @@ const galleryloop = () => {
     $(image).height("400");
     $(image).css("border-radius", "10%");
     //-------------------------------------------
+    
 
+   
+
+    // ----------------- info page -------
     const seemore = $(image).on("click", () => {
+      $(gallerydiv).hide();
+      $(".imgdiv ").hide();
+      $(imgdiv).show();
+      $(".discreptiondiv").text(fulldiscreption); 
+      singlediv.append(imgdiv)
+      singlediv.show() 
+      $(image).css("position", "relative");
+      $(image).css({ left: 700 });
+
+      $(".discreptiondiv").css("text-align", "center");
+      $(".discreptiondiv").css("position", "relative");
+
+      $(".discreptiondiv").text(fulldiscreption);
+      $(title).css({ left: 5 });
+      $(title).css("width", "100%");
+
+      /*
       $(`.gallery`).css("display", "block");
       $(".imgdiv ").hide();
       $(imgdiv).show();
@@ -89,18 +113,21 @@ const galleryloop = () => {
 
       $(".discreptiondiv").css("text-align", "center");
       $(".discreptiondiv").css("position", "relative");
-      
-      
+
       $(".discreptiondiv").text(fulldiscreption);
-      $(title).css({ left: 5 })
+      $(title).css({ left: 5 });
       $(title).css("width", "100%");
+     */
     });
   }
 };
 galleryloop();
 
+// ---------------------------
+
 const back = $(".h1").on("click", () => {
   $(".imgdiv ").hide();
   galleryloop();
 });
+
 

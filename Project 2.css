@@ -55,4 +55,18 @@
    color: yellow;
 padding-top: 20px;
    font-size: large ; 
+  
 }
+
+.singlediv{
+ display:flex; 
+ 
+ 
+  background-image: url(https://free4kwallpapers.com/uploads/wallpaper-cache/cool-black-backgrounds-1300x0-MM-100.jpg);
+  
+  padding: 51px;
+  position: relative;
+  left: 15px;
+  border-radius: 2%;
+  word-wrap: initial;
+} 
