@@ -1,8 +1,11 @@
 const body = $("body");
+$(body).addClass('body')
 const categorydiv = $(".categories");
 const gallerydiv = $(".gallery");
 
-
+const date = new Date();
+date.setFullYear(2022);
+$('.p1').append(date) 
 
 
 
@@ -44,11 +47,17 @@ const title = $(`<h2>${gallery[i].title} <h2>`)
     $(`.gallery`).append($(imgdiv))
     
     $(title).css("width" , "50%" )
-    $(image).css("width" , "464px" )
-    $(image).css(" height" , "772px" )
+    $(title).css("color" , "silver" )
+    $(image).css("width" , "400" )
+    $(image).height( "400" )
+   $(imageid).css("height" , "772px" )
+   $(image).css("border-radius" , "10%" )
+   
   
   }
 };
 galleryloop();
+
+ 
 
 
