@@ -11,6 +11,8 @@
   /*  display: grid ;  */
    grid-template-columns: 1fr 1fr 1fr 1fr ;
   padding: 51px;
+  position: relative;
+  left: 15px;
   border-radius: 2%;
 }
  
@@ -47,4 +49,10 @@
   background-repeat: repeat-y ;
   background-size :  1887px 108px  ;
   object-fit:none;
+}
+
+.discreptiondiv{
+   color: yellow;
+
+   font-size: large ; 
 }

@@ -41,13 +41,20 @@ As a master of Three Sword Style, a swordsmanship style which he created during 
 ];
 
 const galleryloop = () => {
+
   for (i = 0; i < gallery.length; i++) {
     const title = $(`<h2>${gallery[i].title} <h2>`);
     const imgdiv = $(`<div ></div>`);
     $(imgdiv).addClass("imgdiv");
     const image = $(`<img src=${gallery[i].image} />`);
     const imageid = $(`<id>${gallery[i].id} </id>`);
+
     const discreption = gallery[i].discreption.substring(0, 50);
+    const discreptiondiv= $(`<div></div>`)
+    $(discreptiondiv).addClass("discreptiondiv")
+    discreptiondiv.append(discreption)
+
+
     const fulldiscreption = gallery[i].discreption;
     
     image.append(imageid);
@@ -55,7 +62,7 @@ const galleryloop = () => {
     $(title).css("text-align", "center");
     $(imgdiv).append(image);
 
-    $(imgdiv).append(discreption);
+    $(imgdiv).append(discreptiondiv);
     $(`.gallery`).append($(imgdiv));
     $(`.gallery`).css("display", "grid");
 
@@ -66,11 +73,21 @@ const galleryloop = () => {
     $(image).css("border-radius", "10%");
 
     const seemore = $(image).on("click", () => {
-      $(`.gallery`).css("display", "inline-block");
+      $(`.gallery`).css("display", "block");
       $(".imgdiv ").hide();
       $(imgdiv).show();
-      
-      $(imgdiv).append(fulldiscreption); 
+
+
+      $(image).css('position' ,'relative')
+      $(image).css({left : 700})
+       
+      $(".discreptiondiv").css("text-align", "center")
+      $(".discreptiondiv").css("position", "relative")
+     $(".discreptiondiv").append(fulldiscreption)
+    
+
+
+    
       $(title).css("width", "100%")
 
     
@@ -80,3 +97,10 @@ const galleryloop = () => {
   }
 };
 galleryloop();
+
+const back = $('.h1').on('click' , ()=> {
+  $(".imgdiv ").hide();
+   galleryloop()
+} )
+  
+
