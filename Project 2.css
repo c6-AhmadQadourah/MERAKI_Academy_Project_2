@@ -1,13 +1,16 @@
 .img{ 
   cursor: pointer;
-}
 
+}
 .p1{ 
   font-size: large ;
   position: relative;
   left:  1250px;
 }
 
+img:hover{
+transform: scale(1.05);
+}
 
 
 .gallery {

@@ -164,7 +164,7 @@ const galleryloop = () => {
   
 
     // -------------css--------------
-
+    
     $(imageid).hide();
     $(dislikebutton).hide();
     $(likebutton).hide();
