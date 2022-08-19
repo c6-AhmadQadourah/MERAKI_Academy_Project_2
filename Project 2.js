@@ -6,7 +6,6 @@ const singlediv = $(".singlediv");
 singlediv.hide();
 const fav = [];
 
-
 //---------- Date and time-------------
 const date = new Date();
 date.setFullYear(2022);
@@ -80,8 +79,6 @@ const galleryloop = () => {
   for (i = 0; i < gallery.length; i++) {
     const title = $(`<h2>${gallery[i].title} <h2>`);
 
-   
-
     // --------------img things -------------------------------
     const galleryall = gallery[i];
     const imgdiv = $(`<div ></div>`);
@@ -90,8 +87,7 @@ const galleryloop = () => {
     const imageid = $(`<id>${gallery[i].id} </id>`);
 
     // -------------------------------------------------------
-    
-    
+
     // --------------disctreption things ------------------
     const discreption = gallery[i].discreption.substring(0, 50);
     const discreptiondiv = $(`<div></div>`);
@@ -111,8 +107,8 @@ const galleryloop = () => {
     imgdiv.append(favbutton);
     // console.log(galleryall )
     favbutton.on("click", function () {
-      console.log(this);
-      console.log(galleryall);
+      //  console.log(this);
+      // console.log(galleryall);
       fav.push(galleryall);
       this.disabled = true;
       localStorage.setItem("fav", JSON.stringify(fav));
@@ -120,36 +116,21 @@ const galleryloop = () => {
     //----------------------------
 
     //------------ Like-------------
-   
-    
-    
-
 
     const likebutton = $(`<button  > Like </button>`);
-    
-       
+
     $(likebutton).addClass("likebutton");
     imgdiv.append(likebutton);
     // console.log(galleryall )
 
-
-    
- 
-
     likebutton.on("click", function () {
-    
-      console.log(this);
-      console.log(likebutton);
+      // console.log(this);
+      // console.log(likebutton);
       $(likebutton).css("background", "green");
-      $(likebutton).text("Liked !")
-      this.disabled = true; 
-     
-    
+      $(likebutton).text("Liked !");
+      this.disabled = true;
     });
-    
-  
 
-    
     //-----------------Dislike ------------------
     const dislikebutton = $(`<button  > DisLike </button>`);
 
@@ -157,33 +138,24 @@ const galleryloop = () => {
     imgdiv.append(dislikebutton);
     // console.log(galleryall )
     dislikebutton.on("click", function () {
-
-     
       $(dislikebutton).css("background", "red");
-      $(dislikebutton).text("disLiked !")
+      $(dislikebutton).text("disLiked !");
       this.disabled = true;
 
-      const comment= $("<input id = input>" )
-      const tellUsWhy= $("<p> Tell Us Why </p>" )
-      $(comment).addClass('comment')
-      $(tellUsWhy).addClass('why')
+      const comment = $("<input id = input>");
+      const tellUsWhy = $("<p> Tell Us Why </p>");
+      $(comment).addClass("comment");
+      $(tellUsWhy).addClass("why");
 
-      imgdiv.append (comment)
-      imgdiv.append (tellUsWhy)
-       
-
-
+      imgdiv.append(comment);
+      imgdiv.append(tellUsWhy);
     });
-
-
-
-    
 
     //------------------------------------------------------
 
     // -------------css--------------
-    
-    $(imageid).hide() 
+
+    $(imageid).hide();
     $(dislikebutton).hide();
     $(likebutton).hide();
     $(favbutton).hide();
@@ -207,7 +179,6 @@ const galleryloop = () => {
 
     // ----------------- info page -------
     const seemore = $(image).on("click", () => {
-      
       $(gallerydiv).hide();
       $(".imgdiv ").hide();
       $(dislikebutton).show();
@@ -228,9 +199,7 @@ const galleryloop = () => {
       $(favbutton).css("position", "relative");
       $(favbutton).css({ left: 825 });
     });
-    
   }
-  
 };
 galleryloop();
 
@@ -242,4 +211,36 @@ const back = $(".h1").on("click", () => {
   galleryloop();
 });
 
+//---------CATEGORIES   ---------------//
 
+//const Naruto = $("<p class = naruto  > Naruto </p>")
+//$(categorydiv).append (Naruto)
+
+const categoriess = [
+  { name: "Naruto", id: 0 },
+  { name: "One peice", id: 1 },
+];
+/*
+const categoriesloop = () => {
+  for (let i = 0; i < categoriess.length; i++) {
+    const name = $(`<h5>${categoriess[i].name} </h5>`);
+
+    $(categorydiv).append(name);
+
+
+    name.on('click' ,function (){
+      
+      if( categoriess[i].name === categoriess[0].name){
+        const filter = gallery.filter(function( elem , i ){
+          if (elem.id <= 3 ){ 
+             
+          }
+        
+        })
+      } 
+      else console.log('noooo')
+    } )
+  }
+};
+categoriesloop();
+*/

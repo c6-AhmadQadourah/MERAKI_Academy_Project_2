@@ -133,4 +133,13 @@ width: 200px;
   font-size:x-large ;
    font-weight: bold; 
   
+} 
+
+.categories{
+  text-align: center;
+  display: grid;
+  grid-template-columns: .5fr .3fr .3fr 4fr;
+  font-size: x-large;
+  padding: 10px;
+  color: aliceblue;
 }
