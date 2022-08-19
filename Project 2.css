@@ -1,3 +1,7 @@
+.img{ 
+  cursor: pointer;
+}
+
 .p1{ 
   font-size: large ;
   position: relative;
@@ -35,7 +39,7 @@
 }
 .h1{
 
-  
+  cursor: pointer;
   position: relative;
   left: 200px ;
   top: 40px;
@@ -79,6 +83,7 @@ padding-top: 20px;
     padding: 10px;
     color: rgb(16, 16, 5);
     margin: 6px;
+    cursor: pointer;
 }
 
 .likebutton{
@@ -87,7 +92,7 @@ top: 300px;
 left: 200px; 
 
 width: 200px;
-
+cursor: pointer;
   font-size: large;
     font-weight: bold;
     background: linear-gradient(to right, #ddbeb4, #0b4fee, #7ad4d9);
@@ -100,7 +105,7 @@ width: 200px;
   position: relative;
 top: 300px;
 left: 850px; 
-
+cursor: pointer;
 width: 200px;
 
   font-size: large;

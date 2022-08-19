@@ -75,7 +75,15 @@ As a master of Three Sword Style, a swordsmanship style which he created during 
   },
 ];
 
+const categoriess = [
+  { name: "Naruto", id: 0 },
+  { name: "One peice", id: 1 },
+];
+
+
 const galleryloop = () => {
+
+
   for (i = 0; i < gallery.length; i++) {
     const title = $(`<h2>${gallery[i].title} <h2>`);
 
@@ -83,7 +91,7 @@ const galleryloop = () => {
     const galleryall = gallery[i];
     const imgdiv = $(`<div ></div>`);
     $(imgdiv).addClass("imgdiv");
-    const image = $(`<img src=${gallery[i].image} />`);
+    const image = $(`<img class=img src=${gallery[i].image} />`);
     const imageid = $(`<id>${gallery[i].id} </id>`);
 
     // -------------------------------------------------------
@@ -152,6 +160,8 @@ const galleryloop = () => {
     });
 
     //------------------------------------------------------
+ 
+  
 
     // -------------css--------------
 
@@ -209,6 +219,7 @@ const back = $(".h1").on("click", () => {
   $(".imgdiv ").hide();
   singlediv.hide();
   galleryloop();
+  
 });
 
 //---------CATEGORIES   ---------------//
@@ -216,11 +227,8 @@ const back = $(".h1").on("click", () => {
 //const Naruto = $("<p class = naruto  > Naruto </p>")
 //$(categorydiv).append (Naruto)
 
-const categoriess = [
-  { name: "Naruto", id: 0 },
-  { name: "One peice", id: 1 },
-];
-/*
+
+
 const categoriesloop = () => {
   for (let i = 0; i < categoriess.length; i++) {
     const name = $(`<h5>${categoriess[i].name} </h5>`);
@@ -233,7 +241,8 @@ const categoriesloop = () => {
       if( categoriess[i].name === categoriess[0].name){
         const filter = gallery.filter(function( elem , i ){
           if (elem.id <= 3 ){ 
-             
+            return $('.imgdiv')
+
           }
         
         })
@@ -243,4 +252,3 @@ const categoriesloop = () => {
   }
 };
 categoriesloop();
-*/
