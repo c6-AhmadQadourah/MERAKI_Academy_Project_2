@@ -125,21 +125,7 @@ const galleryloop = () => {
       $(favbutton).css("position", "relative");
       $(favbutton).css({ left: 825 });
 
-      /*
-      $(`.gallery`).css("display", "block");
-      $(".imgdiv ").hide();
-      $(imgdiv).show();
-
-      $(image).css("position", "relative");
-      $(image).css({ left: 700 });
-
-      $(".discreptiondiv").css("text-align", "center");
-      $(".discreptiondiv").css("position", "relative");
-
-      $(".discreptiondiv").text(fulldiscreption);
-      $(title).css({ left: 5 });
-      $(title).css("width", "100%");
-     */
+     
     });
   }
 };
