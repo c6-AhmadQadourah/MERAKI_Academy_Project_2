@@ -6,6 +6,7 @@ const singlediv = $(".singlediv");
 singlediv.hide();
 const fav = [];
 
+
 //---------- Date and time-------------
 const date = new Date();
 date.setFullYear(2022);
@@ -82,10 +83,50 @@ const galleryloop = () => {
       this.disabled = true;
       localStorage.setItem( 'fav' , JSON.stringify(fav))
     });
+//----------------------------
+
+//------------ Like-------------
+
+const likebutton = $(
+  `<button  > Like </button>`
+);
+
+$(likebutton).addClass("likebutton");
+imgdiv.append(likebutton); 
+// console.log(galleryall )
+likebutton.on("click", function () {
+  console.log(this);
+  console.log(likebutton);
+   $(likebutton).css('background', 'green')
+  
+  this.disabled = true;
+  
+});
+     
+
+//-----------------Dislike ------------------
+const dislikebutton = $(
+  `<button  > DisLike </button>`
+);
+
+$(dislikebutton).addClass("dislikebutton");
+imgdiv.append(dislikebutton); 
+// console.log(galleryall )
+dislikebutton.on("click", function () {
+  console.log(this);
+  console.log(dislikebutton);
+   $(dislikebutton).css('background', 'red')
+  
+  this.disabled = true;
+  
+});
+
     
     //------------------------------------------------------
   
     // -------------css--------------
+    $(dislikebutton).hide();
+    $(likebutton).hide();
     $(favbutton).hide();
     $(imgdiv).append(imageid);
     $(imgdiv).append(title);
@@ -105,10 +146,16 @@ const galleryloop = () => {
     $(image).css("border-radius", "10%");
     //-------------------------------------------
 
+    
+
+
+
     // ----------------- info page -------
     const seemore = $(image).on("click", () => {
       $(gallerydiv).hide();
       $(".imgdiv ").hide();
+      $(dislikebutton).show();
+      $(likebutton).show();
       $(favbutton).show();
       $(imgdiv).show();
       $(".discreptiondiv").text(fulldiscreption);
