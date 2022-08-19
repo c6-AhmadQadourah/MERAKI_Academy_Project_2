@@ -111,3 +111,26 @@ width: 200px;
     color: rgb(16, 16, 5);
     margin: 6px;
 }
+
+
+.comment{
+   background-color: rgb(235, 149, 149); 
+   position: relative;
+   bottom: 340px;
+   left: 1200px;
+   padding: 30px;
+   border-radius: 20px;
+   font-size: large;
+    font-weight: bold; 
+}
+
+.why{
+  color: rgb(223, 169, 169);
+  position: relative;
+  bottom: 500px;
+  left: 1280px;
+  border-radius: 20px;
+  font-size:x-large ;
+   font-weight: bold; 
+  
+}
