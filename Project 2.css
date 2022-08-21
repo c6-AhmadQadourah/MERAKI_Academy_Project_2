@@ -14,6 +14,7 @@ transform: scale(1.05);
 
 
 .gallery {
+  
   background-image: url(https://free4kwallpapers.com/uploads/wallpaper-cache/cool-black-backgrounds-1300x0-MM-100.jpg);
   /*  display: grid ;  */
    grid-template-columns: 1fr 1fr 1fr 1fr ;
@@ -49,6 +50,7 @@ transform: scale(1.05);
 
 }
 .header {
+  
   background-image: url(./New\ Project\ \(1\).jpg) ;
   color: aqua;
   max-height: 108px;
@@ -144,9 +146,10 @@ width: 200px;
 } 
 
 .categories{
+ 
   text-align: center;
   display: grid;
-  grid-template-columns: .5fr .3fr .3fr 4fr;
+  grid-template-columns: .5fr .3fr .3fr .5fr 4fr ;
   font-size: x-large;
   padding: 10px;
   color: aliceblue;
@@ -164,4 +167,20 @@ width: 200px;
   left: 15px;
   border-radius: 2%;
   word-wrap: initial;
+}
+
+.favlistbutton{
+  position: relative;
+top: 0px;
+left: 1300px; 
+cursor: pointer;
+width: 150px;
+
+  font-size: large;
+    font-weight: bold;
+    background: linear-gradient(to right, #f54a77, #cd5e8c, #eb8ed7);
+    border-radius: 50px;
+    padding: 10px;
+    color: rgb(16, 16, 5);
+    margin: 6px;
 }

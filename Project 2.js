@@ -4,7 +4,9 @@ const categorydiv = $(".categories");
 const gallerydiv = $(".gallery");
 const singlediv = $(".singlediv");
 singlediv.hide();
-const fav = [localStorage.getItem('fav')];
+const fav = [JSON.parse(localStorage.getItem("fav"))];
+
+const favdiv=  $('.favlist')
 
 
 
@@ -52,7 +54,7 @@ const gallery = [
     id: "4",
     title: "Monkey D Luffy ",
     discreption: `Monkey D. Luffy, also known as " Straw Hat Luffy" and commonly as "Straw Hat", is the main protagonist of the manga and anime, One Piece. He is the founder and captain of the increasingly infamous and powerful Straw Hat Pirates, as well as one of its top fighters. His lifelong dream is to become the Pirate King by finding the legendary treasure left behind by the late Gol D. Roger. He believes that being the Pirate King means having the most freedom in the world.`,
-    category : "One Pice"
+    category : "One peice"
   },
 
   {
@@ -63,7 +65,7 @@ const gallery = [
     discreption: `Roronoa Zoro, also known as "Pirate Hunter" Zoro, is the combatant of the Straw Hat Pirates, and one of their two swordsmen. Formerly a bounty hunter, he is the second member of Luffys crew and the first to join it, doing so in the Romance Dawn Arc
 
 As a master of Three Sword Style, a swordsmanship style which he created during his childhood training in Shimotsuki Village, Zoro is among the three most powerful combatants of the Straw Hats, alongside Luffy and Sanji.His dream is to become the greatest swordsman in the world, in order to honor a promise he made to his deceased childhood friend Kuina.`,
-category : "One Pice" ,
+category : "One peice" ,
   },
   {
     image:
@@ -72,7 +74,7 @@ category : "One Pice" ,
     title: "Sabo",
     discreption: `Sabo is a hero from the One Piece anime/manga. He is the Chief of Staff of the Revolutionary Army, and is recognized as the "No. 2" of the entire organization, being directly after Dragon himself in terms of command.
 `,
-category : "One Pice" ,
+category : "One peice" ,
   },
   {
     image:
@@ -81,7 +83,7 @@ category : "One Pice" ,
     title: "Sanji",
     discreption: `Vinsmoke Sanji, also known as "Black Leg" Sanji, is a fictional character in the One Piece franchise created by Eiichiro Oda. A native to the North Blue, Sanji grew up as part of the Vinsmoke family under his father Vinsmoke Judge, king of the Germa Kingdom, and mother Vinsmoke Sora
   `,
-  category : "One Pice"
+  category : "One peice"
   },
 ];
 
@@ -93,9 +95,19 @@ const categoriess = [
 
 const galleryloop = () => {
 
+  
+      
+  
+  
+  
+  
+  
+      
 
+
+  
   for (i = 0; i < gallery.length; i++) {
-    const title = $(`<h2>${gallery[i].title} <h2>`);
+    const title = $(`<h2 class=title >${gallery[i].title} <h2>`);
 
     // --------------img things -------------------------------
     const galleryall = gallery[i];
@@ -114,6 +126,7 @@ const galleryloop = () => {
     const fulldiscreption = gallery[i].discreption;
 
     // --------------------------
+   
 
     //-------------------- FAV----------------------
 
@@ -174,7 +187,6 @@ const galleryloop = () => {
     //------------------------------------------------------
  
   
-
     // -------------css--------------
     
     $(imageid).hide();
@@ -198,6 +210,8 @@ const galleryloop = () => {
     $(image).height("600");
     $(image).css("border-radius", "10%");
     //-------------------------------------------
+    
+  
 
     // ----------------- info page -------
     const seemore = $(image).on("click", () => {
@@ -227,16 +241,115 @@ galleryloop();
 
 // ---------------------------
 
+
+
+
+
+/*
+!---------------------------------- starting spagiti code ----------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+const categoriesloop = () => {
+  for (let i = 0; i < categoriess.length; i++) {
+    const name = $(`<h5 >${categoriess[i].name} </h5>`);
+    $(name).addClass(categoriess[i].name) 
+    
+
+
+
+
+
+    $(categorydiv).append(name);  
+
+    
+    name.on('click' ,function (e){
+     
+      gallery.map(function(elem , i ) {
+
+        
+        if ( elem.category ==='Naruto' ) {
+          console.log (gallery[i].category)
+          $('.imgdiv').hide()  
+
+         
+
+          const title1 = $(`<h2 class=title1 >${gallery[i].title} <h2>`);
+
+    // --------------img things -------------------------------
+    const galleryall1 = gallery[i];
+    const imgdiv1 = $(`<div ></div>`);
+    $(imgdiv1).addClass("imgdiv1");
+    const image1 = $(`<img class=img1 src=${gallery[i].image} />`);
+    const imageid1 = $(`<id>${gallery[i].id} </id>`);
+
+    // -------------------------------------------------------
+
+    // --------------disctreption things ------------------
+    const discreption1 = gallery[i].discreption.substring(0, 50);
+    const discreptiondiv1 = $(`<div></div>`);
+    $(discreptiondiv1).addClass("discreptiondiv1");
+    discreptiondiv1.append(discreption1);
+    const fulldiscreption = gallery[i].discreption;
+ 
+        
+        
+               //    console.log(image1)
+          
+          // -------------css--------------
+    
+    $(imageid1).hide();
+      
+    $(imgdiv1).append(imageid1);
+    $(imgdiv1).append(title1);
+    $(title1).css("text-align", "center");
+    $(title1).css("position", "relative");
+    $(title1).css({ left: 80 });
+    $(imgdiv1).append(image1);  
+
+    $(imgdiv1).append(discreptiondiv1);
+    $(`.gallery`).append($(imgdiv1));
+    $(`.gallery`).css("display", "grid");
+
+    $(title1).css("width", "50%");
+    $(title1).css("color", "silver");
+    $(image1).css("width", "400");
+    $(image1).height("600");
+    $(image1).css("border-radius", "10%");
+    //-------------------------------------------
+        } else  if (name  == 'One peice'){
+       
+        }
+
+        
+        
+
+       })
+
+    })
+
+    
+  }
+};
+
+categoriesloop();
+
+
 const back = $(".h1").on("click", () => {
   $(".imgdiv ").hide();
-  singlediv.hide();
+  
+ $('.imgdiv1').hide()
+ singlediv.hide();
+ $('.fimgdiv').hide()
   galleryloop();
   
-});
+}); 
+
+
 
 //---------CATEGORIES   ---------------//
 
-
+/*
 
 const categoriesloop = () => {
   for (let i = 0; i < categoriess.length; i++) {
@@ -269,3 +382,68 @@ const categoriesloop = () => {
 };
 
 categoriesloop();
+*/
+
+
+
+const myfavlist = ()=>{
+  favlistbutton = $('<button class = favlistbutton > My Fav List</button>')
+ categorydiv.append(favlistbutton)
+ 
+   
+ 
+ for (let i = 0; i <fav.length; i++) {
+   const ftitle = $(`<h2 class=ftitle >${fav[i][1].title} <h2>`);
+ 
+
+console.log(fav[i][1].title)
+
+   // --------------img things -------------------------------
+   const fgalleryall = fav[i][1];
+   const fimgdiv = $(`<div ></div>`);
+   $(fimgdiv).addClass("fimgdiv");
+   const fimage = $(`<img class=fimg src=${fav[i][1].image} />`);
+   const fimageid = $(`<id>${fav[i][1].id} </id>`);
+ 
+   // -------------------------------------------------------
+ 
+   // --------------disctreption things ------------------
+   const fdiscreption = fav[i][1].discreption;
+   const fdiscreptiondiv = $(`<div></div>`);
+   $(fdiscreptiondiv).addClass("fdiscreptiondiv");
+   fdiscreptiondiv.append(fdiscreption);
+   const ffulldiscreption = fav[i][1].discreption;
+ 
+ $(fimageid).hide();
+    
+     $(fimgdiv).append(fimageid);
+     $(fimgdiv).append(ftitle);
+     $(ftitle).css("text-align", "center");
+     $(ftitle).css("position", "relative");
+     $(ftitle).css({ left: 80 });
+     $(fimgdiv).append(fimage);
+ 
+     $(fimgdiv).append(fdiscreptiondiv);
+     $(`.gallery`).append($(fimgdiv));
+     
+     $(`.gallery`).css("display", "grid");
+     $(fimgdiv).hide();
+     $(ftitle).css("width", "50%");
+     $(ftitle).css("color", "silver");
+     $(fimage).css("width", "400");
+     $(fimage).height("600");
+     $(fimage).css("border-radius", "10%");
+ 
+ 
+   favlistbutton.on('click' , ()=> {
+    
+   $('.imgdiv').hide()
+   $('.imgdiv1').hide()
+   $(fimgdiv).show();
+   singlediv.hide();
+  // $(`.gallery`).append(fav)
+     
+ 
+ 
+   }) }}
+    myfavlist( )
