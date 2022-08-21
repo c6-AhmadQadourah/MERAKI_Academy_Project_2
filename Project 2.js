@@ -233,10 +233,24 @@ const categoriesloop = () => {
     $(name).addClass(`${categoriess[i].name}`);
 
     $(name).on("click", function (e) {
-      const ss = gallery.filter(function (elem, i) {
-        console.log(elem.category);
+      // console.log($(name).text()   )
+      gallery.filter(function (elem, i) {
+       // console.log(e.target);
+
+        // console.log($(name).text() )
+        //console.log(elem.category)
+
         if (e.target.innerText == gallery[i].category) {
-          console.log(e.target.innerText);
+          console.log($(name).text() )
+          
+          return false
+          
+
+
+
+          
+        
+        
         }
       });
     });
@@ -244,7 +258,6 @@ const categoriesloop = () => {
     $(categorydiv).append(name);
   }
 };
-categoriesloop();
 
 /*
     name.on("click", function (e) {
@@ -307,6 +320,8 @@ categoriesloop();
   }
 };
 */
+
+categoriesloop();
 
 const back = $(".h1").on("click", () => {
   $(".imgdiv ").hide();
