@@ -89,33 +89,33 @@ const categoriess = [
   { name: "Naruto", id: 0 },
   { name: "One peice", id: 1 },
 ];
-
-const galleryloop = () => {
-  for (i = 0; i < gallery.length; i++) {
-    const title = $(`<h2 class=title >${gallery[i].title} <h2>`);
+ 
+const galleryloop = (copygallery) => {
+  copygallery.forEach(function (elem , i ) {
+    const title = $(`<h2 class=title >${elem.title} <h2>`);
 
     // --------------img things -------------------------------
-    const galleryall = gallery[i];
+    const galleryall = elem;
     const imgdiv = $(`<div ></div>`);
     $(imgdiv).addClass("imgdiv");
-    const image = $(`<img class=img src=${gallery[i].image} />`);
-    const imageid = $(`<id>${gallery[i].id} </id>`);
+    const image = $(`<img class=img src=${elem.image} />`);
+    const imageid = $(`<id>${elem.id} </id>`);
 
     // -------------------------------------------------------
 
     // --------------disctreption things ------------------
-    const discreption = gallery[i].discreption.substring(0, 50);
+    const discreption = elem.discreption.substring(0, 50);
     const discreptiondiv = $(`<div></div>`);
     $(discreptiondiv).addClass("discreptiondiv");
     discreptiondiv.append(discreption);
-    const fulldiscreption = gallery[i].discreption;
+    const fulldiscreption = elem.discreption;
 
     // --------------------------
 
     //-------------------- FAV----------------------
 
     const favbutton = $(
-      `<button id= ${gallery[i].id}  > Add To Favorite </button>`
+      `<button id= ${elem.id}  > Add To Favorite </button>`
     );
 
     $(favbutton).addClass("favbutton");
@@ -216,9 +216,9 @@ const galleryloop = () => {
       $(favbutton).css("position", "relative");
       $(favbutton).css({ left: 825 });
     });
-  }
-};
-galleryloop();
+  })
+} ;
+galleryloop(gallery );
 
 // ---------------------------
 
@@ -233,26 +233,26 @@ const categoriesloop = () => {
     $(name).addClass(`${categoriess[i].name}`);
 
     $(name).on("click", function (e) {
+      
       // console.log($(name).text()   )
-      gallery.filter(function (elem, i) {
+     const aa =  gallery.filter(function (elem, i) {
        // console.log(e.target);
 
         // console.log($(name).text() )
         //console.log(elem.category)
 
         if (e.target.innerText == gallery[i].category) {
-          console.log($(name).text() )
-          
-          return false
-          
+          $(".imgdiv").remove ();
+         return true
 
 
-
-          
-        
         
         }
+        
       });
+
+      galleryloop(aa )
+      console.log(aa)
     });
 
     $(categorydiv).append(name);
@@ -368,13 +368,13 @@ const categoriesloop = () => {
 
 categoriesloop();
 */
-
+/*
 const myfavlist = () => {
   favlistbutton = $("<button class = favlistbutton > My Fav List</button>");
   categorydiv.append(favlistbutton);
 
   for (let i = 0; i < fav.length; i++) {
-    const ftitle = $(`<h2 class=ftitle >${fav[i][1].title} <h2>`);
+    const ftitle = $(`<h2 class=ftitle >${fav[i].title} <h2>`);
 
     //  console.log(fav[i][1].title);
 
@@ -424,7 +424,7 @@ const myfavlist = () => {
   }
 };
 myfavlist();
-
+*/
 //---------------------------Login page ----------------------------
 
 const logicontainer = $("<div class=logincontainer   ></div>");
