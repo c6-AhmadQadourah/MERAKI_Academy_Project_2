@@ -146,10 +146,10 @@ width: 200px;
 } 
 
 .categories{
- 
+  width: 1000px;
   text-align: center;
   display: grid;
-  grid-template-columns: .5fr .3fr .3fr .5fr 4fr ;
+  grid-template-columns: 1fr 1fr 1fr .5fr 4fr ;
   font-size: x-large;
   padding: 10px;
   color: aliceblue;
@@ -184,3 +184,27 @@ width: 150px;
     color: rgb(16, 16, 5);
     margin: 6px;
 }
+ 
+.logincontainer{
+  width: 450px;
+  position: relative;
+  bottom: 1655px;
+  left: 1250px;
+
+}
+
+
+.logidiv {
+  width: 450px;
+}
+.username {
+   width: 100px;
+  color: rgb(255, 255, 255);
+  position: relative;
+  top: 10px;
+  left: 30px;
+  font-size: larger; 
+  
+
+}
+

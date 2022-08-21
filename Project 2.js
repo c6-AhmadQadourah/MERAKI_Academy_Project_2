@@ -6,9 +6,7 @@ const singlediv = $(".singlediv");
 singlediv.hide();
 const fav = [JSON.parse(localStorage.getItem("fav"))];
 
-const favdiv=  $('.favlist')
-
-
+const favdiv = $(".favlist");
 
 //---------- Date and time-------------
 const date = new Date();
@@ -22,7 +20,7 @@ const gallery = [
     id: "0",
     title: " Sasuke Uchiha ",
     discreption: `Sasuke Uchiha (うちはサスケ, Uchiha Sasuke) is one of the last surviving members of Konohagakure's Uchiha clan. After his older brother, Itachi, slaughtered their clan, Sasuke made it his mission in life to avenge them by killing Itachi. He is added to Team 7 upon becoming a ninja and, through competition with his rival and best friend, Naruto Uzumaki, Sasuke starts developing his skills.`,
-    category : "Naruto"
+    category: "Naruto",
   },
   {
     image:
@@ -30,7 +28,7 @@ const gallery = [
     id: "1",
     title: "Naruto Uzumaki ",
     discreption: `Naruto Uzumaki (うずまきナルト, Uzumaki Naruto) is a shinobi of Konohagakure's Uzumaki clan. He became the jinchūriki of the Nine-Tails on the day of his birth — a fate that caused him to be shunned by most of Konoha throughout his childhood. After joining Team Kakashi, Naruto worked hard to gain the village's acknowledgement all the while chasing his dream to become Hokage.`,
-    category : "Naruto"
+    category: "Naruto",
   },
   {
     image:
@@ -38,7 +36,7 @@ const gallery = [
     id: "2",
     title: "Kakashi Hatake",
     discreption: `Kakashi Hatake is a fictional character in the Naruto manga and anime series created by Masashi Kishimoto. In the story, Kakashi is the teacher of Team 7, consisting of the series' primary characters, Naruto Uzumaki, Sasuke Uchiha, and Sakura Haruno `,
-    category : "Naruto"
+    category: "Naruto",
   },
   {
     image:
@@ -46,7 +44,7 @@ const gallery = [
     id: "3",
     title: "Madara Uchiha",
     discreption: `Madara Uchiha is a fictional manga and anime character in the Naruto series created by Masashi Kishimoto. He appears for the first time in "Part II" of the manga and the Shippuden anime adaptation, as a major villain `,
-    category : "Naruto"
+    category: "Naruto",
   },
   {
     image:
@@ -54,7 +52,7 @@ const gallery = [
     id: "4",
     title: "Monkey D Luffy ",
     discreption: `Monkey D. Luffy, also known as " Straw Hat Luffy" and commonly as "Straw Hat", is the main protagonist of the manga and anime, One Piece. He is the founder and captain of the increasingly infamous and powerful Straw Hat Pirates, as well as one of its top fighters. His lifelong dream is to become the Pirate King by finding the legendary treasure left behind by the late Gol D. Roger. He believes that being the Pirate King means having the most freedom in the world.`,
-    category : "One peice"
+    category: "One peice",
   },
 
   {
@@ -65,7 +63,7 @@ const gallery = [
     discreption: `Roronoa Zoro, also known as "Pirate Hunter" Zoro, is the combatant of the Straw Hat Pirates, and one of their two swordsmen. Formerly a bounty hunter, he is the second member of Luffys crew and the first to join it, doing so in the Romance Dawn Arc
 
 As a master of Three Sword Style, a swordsmanship style which he created during his childhood training in Shimotsuki Village, Zoro is among the three most powerful combatants of the Straw Hats, alongside Luffy and Sanji.His dream is to become the greatest swordsman in the world, in order to honor a promise he made to his deceased childhood friend Kuina.`,
-category : "One peice" ,
+    category: "One peice",
   },
   {
     image:
@@ -74,7 +72,7 @@ category : "One peice" ,
     title: "Sabo",
     discreption: `Sabo is a hero from the One Piece anime/manga. He is the Chief of Staff of the Revolutionary Army, and is recognized as the "No. 2" of the entire organization, being directly after Dragon himself in terms of command.
 `,
-category : "One peice" ,
+    category: "One peice",
   },
   {
     image:
@@ -83,7 +81,7 @@ category : "One peice" ,
     title: "Sanji",
     discreption: `Vinsmoke Sanji, also known as "Black Leg" Sanji, is a fictional character in the One Piece franchise created by Eiichiro Oda. A native to the North Blue, Sanji grew up as part of the Vinsmoke family under his father Vinsmoke Judge, king of the Germa Kingdom, and mother Vinsmoke Sora
   `,
-  category : "One peice"
+    category: "One peice",
   },
 ];
 
@@ -92,20 +90,7 @@ const categoriess = [
   { name: "One peice", id: 1 },
 ];
 
-
 const galleryloop = () => {
-
-  
-      
-  
-  
-  
-  
-  
-      
-
-
-  
   for (i = 0; i < gallery.length; i++) {
     const title = $(`<h2 class=title >${gallery[i].title} <h2>`);
 
@@ -126,7 +111,6 @@ const galleryloop = () => {
     const fulldiscreption = gallery[i].discreption;
 
     // --------------------------
-   
 
     //-------------------- FAV----------------------
 
@@ -142,8 +126,8 @@ const galleryloop = () => {
       // console.log(galleryall);
       fav.push(galleryall);
       this.disabled = true;
-      localStorage.setItem("fav", JSON.stringify(fav))
-      
+      localStorage.setItem("fav", JSON.stringify(fav));
+
       // console.log(fav)
     });
     //----------------------------
@@ -185,10 +169,9 @@ const galleryloop = () => {
     });
 
     //------------------------------------------------------
- 
-  
+
     // -------------css--------------
-    
+
     $(imageid).hide();
     $(dislikebutton).hide();
     $(likebutton).hide();
@@ -210,8 +193,6 @@ const galleryloop = () => {
     $(image).height("600");
     $(image).css("border-radius", "10%");
     //-------------------------------------------
-    
-  
 
     // ----------------- info page -------
     const seemore = $(image).on("click", () => {
@@ -241,10 +222,6 @@ galleryloop();
 
 // ---------------------------
 
-
-
-
-
 /*
 !---------------------------------- starting spagiti code ----------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -253,99 +230,92 @@ galleryloop();
 const categoriesloop = () => {
   for (let i = 0; i < categoriess.length; i++) {
     const name = $(`<h5 >${categoriess[i].name} </h5>`);
-    $(name).addClass(categoriess[i].name) 
-    
+    $(name).addClass(`${categoriess[i].name}`);
 
+    $(name).on("click", function (e) {
+      const ss = gallery.filter(function (elem, i) {
+        console.log(elem.category);
+        if (e.target.innerText == gallery[i].category) {
+          console.log(e.target.innerText);
+        }
+      });
+    });
 
+    $(categorydiv).append(name);
+  }
+};
+categoriesloop();
 
+/*
+    name.on("click", function (e) {
+      
+      gallery.map(function (elem, i) {
 
+        console.log(e)
 
-    $(categorydiv).append(name);  
-
-    
-    name.on('click' ,function (e){
-     
-      gallery.map(function(elem , i ) {
-
-        
-        if ( elem.category ==='Naruto' ) {
-          console.log (gallery[i].category)
-          $('.imgdiv').hide()  
-
-         
+        if (elem.category === "Naruto") {
+          console.log(gallery[i].category);
+          $(".imgdiv").hide();
 
           const title1 = $(`<h2 class=title1 >${gallery[i].title} <h2>`);
 
-    // --------------img things -------------------------------
-    const galleryall1 = gallery[i];
-    const imgdiv1 = $(`<div ></div>`);
-    $(imgdiv1).addClass("imgdiv1");
-    const image1 = $(`<img class=img1 src=${gallery[i].image} />`);
-    const imageid1 = $(`<id>${gallery[i].id} </id>`);
+          // --------------img things -------------------------------
+          const galleryall1 = gallery[i];
+          const imgdiv1 = $(`<div ></div>`);
+          $(imgdiv1).addClass("imgdiv1");
+          const image1 = $(`<img class=img1 src=${gallery[i].image} />`);
+          const imageid1 = $(`<id>${gallery[i].id} </id>`);
 
-    // -------------------------------------------------------
+          // -------------------------------------------------------
 
-    // --------------disctreption things ------------------
-    const discreption1 = gallery[i].discreption.substring(0, 50);
-    const discreptiondiv1 = $(`<div></div>`);
-    $(discreptiondiv1).addClass("discreptiondiv1");
-    discreptiondiv1.append(discreption1);
-    const fulldiscreption = gallery[i].discreption;
- 
-        
-        
-               //    console.log(image1)
-          
+          // --------------disctreption things ------------------
+          const discreption1 = gallery[i].discreption.substring(0, 50);
+          const discreptiondiv1 = $(`<div></div>`);
+          $(discreptiondiv1).addClass("discreptiondiv1");
+          discreptiondiv1.append(discreption1);
+          const fulldiscreption = gallery[i].discreption;
+
+          //    console.log(image1)
+
           // -------------css--------------
-    
-    $(imageid1).hide();
-      
-    $(imgdiv1).append(imageid1);
-    $(imgdiv1).append(title1);
-    $(title1).css("text-align", "center");
-    $(title1).css("position", "relative");
-    $(title1).css({ left: 80 });
-    $(imgdiv1).append(image1);  
 
-    $(imgdiv1).append(discreptiondiv1);
-    $(`.gallery`).append($(imgdiv1));
-    $(`.gallery`).css("display", "grid");
+          $(imageid1).hide();
 
-    $(title1).css("width", "50%");
-    $(title1).css("color", "silver");
-    $(image1).css("width", "400");
-    $(image1).height("600");
-    $(image1).css("border-radius", "10%");
-    //-------------------------------------------
-        } else  if (name  == 'One peice'){
-       
+          $(imgdiv1).append(imageid1);
+          $(imgdiv1).append(title1);
+          $(title1).css("text-align", "center");
+          $(title1).css("position", "relative");
+          $(title1).css({ left: 80 });
+          $(imgdiv1).append(image1);
+
+          $(imgdiv1).append(discreptiondiv1);
+          $(`.gallery`).append($(imgdiv1));
+          $(`.gallery`).css("display", "grid");
+
+          $(title1).css("width", "50%");
+          $(title1).css("color", "silver");
+          $(image1).css("width", "400");
+          $(image1).height("600");
+          $(image1).css("border-radius", "10%");
+
+
+          //-------------------------------------------
+        } 
         }
-
-        
-        
-
-       })
-
-    })
-
-    
+      });
+    });
   }
 };
-
-categoriesloop();
-
+*/
 
 const back = $(".h1").on("click", () => {
   $(".imgdiv ").hide();
-  
- $('.imgdiv1').hide()
- singlediv.hide();
- $('.fimgdiv').hide()
+
+  $(".imgdiv1").hide();
+  singlediv.hide();
+  $(".fimgdiv").hide();
   galleryloop();
-  
-}); 
-
-
+});
 
 //---------CATEGORIES   ---------------//
 
@@ -384,66 +354,76 @@ const categoriesloop = () => {
 categoriesloop();
 */
 
+const myfavlist = () => {
+  favlistbutton = $("<button class = favlistbutton > My Fav List</button>");
+  categorydiv.append(favlistbutton);
 
+  for (let i = 0; i < fav.length; i++) {
+    const ftitle = $(`<h2 class=ftitle >${fav[i][1].title} <h2>`);
 
-const myfavlist = ()=>{
-  favlistbutton = $('<button class = favlistbutton > My Fav List</button>')
- categorydiv.append(favlistbutton)
- 
-   
- 
- for (let i = 0; i <fav.length; i++) {
-   const ftitle = $(`<h2 class=ftitle >${fav[i][1].title} <h2>`);
- 
+    //  console.log(fav[i][1].title);
 
-console.log(fav[i][1].title)
+    // --------------img things -------------------------------
+    const fgalleryall = fav[i][1];
+    const fimgdiv = $(`<div ></div>`);
+    $(fimgdiv).addClass("fimgdiv");
+    const fimage = $(`<img class=fimg src=${fav[i][1].image} />`);
+    const fimageid = $(`<id>${fav[i][1].id} </id>`);
 
-   // --------------img things -------------------------------
-   const fgalleryall = fav[i][1];
-   const fimgdiv = $(`<div ></div>`);
-   $(fimgdiv).addClass("fimgdiv");
-   const fimage = $(`<img class=fimg src=${fav[i][1].image} />`);
-   const fimageid = $(`<id>${fav[i][1].id} </id>`);
- 
-   // -------------------------------------------------------
- 
-   // --------------disctreption things ------------------
-   const fdiscreption = fav[i][1].discreption;
-   const fdiscreptiondiv = $(`<div></div>`);
-   $(fdiscreptiondiv).addClass("fdiscreptiondiv");
-   fdiscreptiondiv.append(fdiscreption);
-   const ffulldiscreption = fav[i][1].discreption;
- 
- $(fimageid).hide();
-    
-     $(fimgdiv).append(fimageid);
-     $(fimgdiv).append(ftitle);
-     $(ftitle).css("text-align", "center");
-     $(ftitle).css("position", "relative");
-     $(ftitle).css({ left: 80 });
-     $(fimgdiv).append(fimage);
- 
-     $(fimgdiv).append(fdiscreptiondiv);
-     $(`.gallery`).append($(fimgdiv));
-     
-     $(`.gallery`).css("display", "grid");
-     $(fimgdiv).hide();
-     $(ftitle).css("width", "50%");
-     $(ftitle).css("color", "silver");
-     $(fimage).css("width", "400");
-     $(fimage).height("600");
-     $(fimage).css("border-radius", "10%");
- 
- 
-   favlistbutton.on('click' , ()=> {
-    
-   $('.imgdiv').hide()
-   $('.imgdiv1').hide()
-   $(fimgdiv).show();
-   singlediv.hide();
-  // $(`.gallery`).append(fav)
-     
- 
- 
-   }) }}
-    myfavlist( )
+    // -------------------------------------------------------
+
+    // --------------disctreption things ------------------
+    const fdiscreption = fav[i][1].discreption;
+    const fdiscreptiondiv = $(`<div></div>`);
+    $(fdiscreptiondiv).addClass("fdiscreptiondiv");
+    fdiscreptiondiv.append(fdiscreption);
+    const ffulldiscreption = fav[i][1].discreption;
+
+    $(fimageid).hide();
+
+    $(fimgdiv).append(fimageid);
+    $(fimgdiv).append(ftitle);
+    $(ftitle).css("text-align", "center");
+    $(ftitle).css("position", "relative");
+    $(ftitle).css({ left: 80 });
+    $(fimgdiv).append(fimage);
+
+    $(fimgdiv).append(fdiscreptiondiv);
+    $(`.gallery`).append($(fimgdiv));
+
+    $(`.gallery`).css("display", "grid");
+    $(fimgdiv).hide();
+    $(ftitle).css("width", "50%");
+    $(ftitle).css("color", "silver");
+    $(fimage).css("width", "400");
+    $(fimage).height("600");
+    $(fimage).css("border-radius", "10%");
+
+    favlistbutton.on("click", () => {
+      $(".imgdiv").hide();
+      $(".imgdiv1").hide();
+      $(fimgdiv).show();
+      singlediv.hide();
+      // $(`.gallery`).append(fav)
+    });
+  }
+};
+myfavlist();
+
+//---------------------------Login page ----------------------------
+
+const logicontainer = $("<div class=logincontainer   ></div>");
+const Logininput = $("<input class = logininput >");
+const logindiv = $("<div class=logidiv   ></div>");
+const loginusername = $("<p class= username > Username </p>");
+
+const Logininputpass = $("<input class = logininputpass >");
+const loginpass = $("<p class= pass > Username </p>");
+logindiv.append(Logininputpass);
+logindiv.append(loginpass);
+
+logindiv.append(loginusername);
+logindiv.append(Logininput);
+logicontainer.append(logindiv);
+
+body.append(logicontainer);
