@@ -5,7 +5,7 @@ const gallerydiv = $(".gallery");
 const singlediv = $(".singlediv");
 singlediv.hide();
 let fav = JSON.parse(localStorage.getItem("fav")) || [];
-
+let logincontainer = []
 const favdiv = $(".favlist");
 
 const gallery = [
@@ -287,7 +287,7 @@ const back = $(".h1").on("click", () => {
 
 const myfavlist = () => {
   favlistbutton = $("<button class = favlistbutton > My Fav List</button>");
-  categorydiv.append(favlistbutton);
+  $('.header').append(favlistbutton);
   favlistbutton.on("click ", () => {
     $(".imgdiv").remove();
    $('.singlediv').hide()
@@ -322,6 +322,7 @@ const loginusername = $("<p class= username > Username </p>");
 const Logininputpass = $("<input type= password class = logininputpass >");
 const loginpass = $("<p class= loginpass  > Password  </p>");
 const loginbutton= $("<button class = loginbutton> Login </button> ");
+const registerbutt= $("<button class = registerbutton> Register </button> ");
 
 const modeldiv = $('<div class= modal ></div> ')
 const contentdiv=$('<div class= modal-content ></div> ') 
@@ -341,6 +342,8 @@ loginbutt.on('click' , ()=> {
   contentdiv.append(loginpass);
   contentdiv.append(Logininputpass);
   contentdiv.append(loginbutton);
+  $(registerbutt).hide()
+  $(loginbutton).show()
   $(Logininput).attr('placeholder' , ' Write Your Email Here !! ')
   $(Logininputpass).attr('placeholder' , ' Write Your Password Here !! ')
 
@@ -357,3 +360,29 @@ closee.on('click' , ()=>{
 
 
 //--------------------- register  elements and css --------------------------------------//
+const registerbutton= $('<button id = registerbutton >Join Us! </button> ')
+$(body).append(registerbutton); 
+registerbutton.on('click' , ()=> { 
+  contentdiv.append(loginusername);
+  contentdiv.append(Logininput);
+  contentdiv.append(loginpass);
+  contentdiv.append(Logininputpass);
+  contentdiv.append(registerbutt);
+  $(registerbutt).show()
+  $(loginbutton).hide()
+
+  
+
+  $(modeldiv).css('display' , 'block')
+ 
+  $(Logininput).attr('placeholder' , ' Write Your Email Here !! ')
+  $(Logininputpass).attr('placeholder' , ' Write Your Password Here !! ')
+
+})
+closee.on('click' , ()=>{
+  $(modeldiv).css('display' , 'none')
+} )
+
+
+//--------------------------------Login Logic -------------------------------------//
+

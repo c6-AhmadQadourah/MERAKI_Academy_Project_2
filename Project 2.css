@@ -176,7 +176,7 @@ width: 200px;
 .favlistbutton{
   position: relative;
 top: 0px;
-left: 1300px; 
+left: 1660px; 
 cursor: pointer;
 width: 150px;
 
@@ -225,7 +225,21 @@ border-style: solid;
 border-radius:10px ;
 }
 
-
+#registerbutton{
+  cursor: pointer;
+  position:relative;
+  left: 1650px;
+  bottom: 1650px;
+  font-size: large;
+    font-weight: bold;
+    background: linear-gradient(to right, #35302f, #352a36b5, #131718d5);
+    border-radius: 20px;
+    padding: 15px;
+    
+    color: rgb(255, 255, 255);
+    margin-left: 10px;
+  
+}
 #loginmain{
   cursor: pointer;
   position:relative;
