@@ -5,7 +5,7 @@ const gallerydiv = $(".gallery");
 const singlediv = $(".singlediv");
 singlediv.hide();
 let fav = JSON.parse(localStorage.getItem("fav")) || [];
-let logincontainer =JSON.parse(localStorage.getItem("reg")) || []
+let logincontainer =JSON.parse(localStorage.getItem("reg")) || [] ;
 const favdiv = $(".favlist");
 
 const gallery = [
@@ -259,7 +259,7 @@ const categoriesloop = () => {
       });
 
       galleryloop(aa);
-      console.log(aa);
+      
     });
 
     $(categorydiv).append(name);
@@ -313,13 +313,13 @@ const loginbutt= $('<button id = loginmain >LOGIN </button> ')
 $(body).append(loginbutt);  
 
 const logicontainer = $("<div class=logincontainer   ></div>");
-const Logininput = $(`<input class = logininput  >`);
+const Logininput = $(`<input id=text class = logininput  >`);
 const logindiv = $("<div class=logidiv   ></div>");
 const loginusername = $("<p class= username > Username </p>");
 
 
  
-const Logininputpass = $("<input type= password class = logininputpass >");
+const Logininputpass = $("<input type= password id=pass  class = logininputpass >");
 const loginpass = $("<p class= loginpass  > Password  </p>");
 const loginbutton= $("<button class = loginbutton> Login </button> ");
 const registerbutt= $("<button class = registerbutton> Register </button> ");
@@ -385,20 +385,46 @@ closee.on('click' , ()=>{
 
 
 registerbutt.on('click' , ()=>{
-  localStorage.setItem("reg", JSON.stringify(logicontainer));
+  if($('#text').val().length < 6 ){ 
+    const lessthan6 = $('<p class = lessthan6 > Enter 6 characters at least ! </p>')
+    contentdiv.append(lessthan6)
+  }
+ else if  ($('#pass').val().length < 8 ){
+  const lessthan8 = $('<p class = lessthan8 > Your Password must be  at least 8 characters ! </p>')
+  contentdiv.append(lessthan8)
+ }
+ else if($('#text').val().length > 6 && $('#pass').val().length > 8 ){
+  logincontainer.push({username : $('#text').val() , password : $('#pass').val()})
+  
+  localStorage.setItem("reg", JSON.stringify(logincontainer));
+ }
+  
+   
  
-  logicontainer.push({username : $(Logininput).text() , password : $(Logininputpass).text()})
-  
-  
-  
 })
-console.log($(Logininput).value) 
-  
 //--------------------------------LOGIN Logic -------------------------------------//
 
 registerloop = ()=>{
-const username1= $(Logininput).text()
-const password1= $(Logininputpass).text()
 
 
+const loop =logincontainer.forEach(function(elem , i){
+console.log(elem.username)
+  loginbutton.on('click' , ()=> {
+    if(elem.username == $('#text').val() && elem.password == $('#pass').val() ){
+      alert('Login Sucssfull')
+      $(modeldiv).css('display' , 'none')
+      $(registerbutton).hide()
+      $(loginbutt).hide()
+      const welcome = $(`<p class = welcome> Welcome ${elem.username} </p>`)
+      $('.header').append(welcome)
+      
+   }
+
+  })
+
+
+})
+
+ 
 }
+registerloop()
