@@ -90,25 +90,25 @@ const galleryloop = (copygallery) => {
   copygallery.forEach(function (elem, i) {
     const title = $(`<h2 class=title >${elem.title} <h2>`);
 
-    // --------------img things -------------------------------
+    // --------------------------img things -------------------------------//
     const galleryall = elem;
     const imgdiv = $(`<div ></div>`);
     $(imgdiv).addClass("imgdiv");
     const image = $(`<img class=img src=${elem.image} />`);
     const imageid = $(`<id>${elem.id} </id>`);
 
-    // -------------------------------------------------------
+    // -------------------------------------------------------//
 
-    // --------------disctreption things ------------------
+    // --------------disctreption things ------------------//
     const discreption = elem.discreption.substring(0, 50);
     const discreptiondiv = $(`<div></div>`);
     $(discreptiondiv).addClass("discreptiondiv");
     discreptiondiv.append(discreption);
     const fulldiscreption = elem.discreption;
 
-    // --------------------------
+    // ------------------------------------------------------//
 
-    //-------------------- FAV----------------------
+    //----------------------- FAV----------------------------//
 
     const favbutton = $(`<button id= ${elem.id}  > Add To Favorite </button>`);
 
@@ -125,9 +125,9 @@ const galleryloop = (copygallery) => {
 
       // console.log(fav)
     });
-    //----------------------------
+    //------------------------------------------------------//
 
-    //------------ Like-------------
+    //-------------------------- Like-----------------------// 
 
     const likebutton = $(`<button  > Like </button>`);
 
@@ -143,7 +143,7 @@ const galleryloop = (copygallery) => {
       this.disabled = true;
     });
 
-    //-----------------Dislike ------------------
+    //-----------------Dislike --------------------// 
     const dislikebutton = $(`<button  > DisLike </button>`);
 
     $(dislikebutton).addClass("dislikebutton");
@@ -163,10 +163,31 @@ const galleryloop = (copygallery) => {
       imgdiv.append(tellUsWhy);
     });
 
-    //------------------------------------------------------
+    //------------------------------------------------------//
 
+//-----------------Remove from fav ------------------// 
+
+    const removefromfav= $(`<button id = ${elem.id}  > remove from fav </button>`);
+
+    $(removefromfav).addClass(`removefrom`);
+    imgdiv.append(removefromfav);
+    removefromfav.on('click' , (e)=> {
+      fav.filter(function ( elem , i) {
+      if( elem.id === e.target.id ){
+        fav.splice(i, 1)
+
+
+      localStorage.setItem("fav", JSON.stringify(fav));
+
+      }
+
+      })
+      
+    })
+    //------------------------------------------------------//
+    
     // -------------css--------------
-
+    $(removefromfav).hide()
     $(imageid).hide();
     $(dislikebutton).hide();
     $(likebutton).hide();
@@ -258,7 +279,7 @@ const back = $(".h1").on("click", () => {
   singlediv.hide();
   $(".fimgdiv").hide();
   galleryloop(gallery);
-});
+}); 
 
 //---------------------------------BACK LOOP END ----------------------------------------//
 
@@ -269,8 +290,13 @@ const myfavlist = () => {
   categorydiv.append(favlistbutton);
   favlistbutton.on("click ", () => {
     $(".imgdiv").remove();
-
+   
+  
     galleryloop(fav);
+    
+    $('.removefrom').show()
+  
+
   });
 };
 myfavlist();
