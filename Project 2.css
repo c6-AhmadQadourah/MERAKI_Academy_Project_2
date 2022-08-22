@@ -196,6 +196,8 @@ width: 150px;
 
 .logidiv {
   width: 450px;
+  position: relative;
+  bottom: 100px;;
 }
 .username {
    width: 100px;
@@ -207,4 +209,20 @@ width: 150px;
   
 
 }
+.loginpass{
+  
+  width: 100px;
+  color: rgb(255, 255, 255);
+  position: relative;
+  top: 10px;
+  left: 30px;
+  font-size: larger; 
+}
+ 
+.loginbutton{
+position: relative;
+left: 25px; 
+cursor: pointer;
 
+
+}

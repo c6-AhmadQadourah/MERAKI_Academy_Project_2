@@ -310,13 +310,17 @@ const Logininput = $("<input class = logininput >");
 const logindiv = $("<div class=logidiv   ></div>");
 const loginusername = $("<p class= username > Username </p>");
 
-const Logininputpass = $("<input class = logininputpass >");
-const loginpass = $("<p class= pass > Username </p>");
-logindiv.append(Logininputpass);
-logindiv.append(loginpass);
+const Logininputpass = $("<input type= password class = logininputpass >");
+const loginpass = $("<p class= loginpass > Password  </p>");
+const loginbutton= $("<button class = loginbutton> Login </button> ");
 
 logindiv.append(loginusername);
 logindiv.append(Logininput);
+logindiv.append(loginpass); 
+logindiv.append(Logininputpass);
+logindiv.append(loginbutton);
+
+
 logicontainer.append(logindiv);
 
 body.append(logicontainer);
