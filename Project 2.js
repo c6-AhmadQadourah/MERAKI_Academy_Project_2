@@ -5,7 +5,7 @@ const gallerydiv = $(".gallery");
 const singlediv = $(".singlediv");
 singlediv.hide();
 let fav = JSON.parse(localStorage.getItem("fav")) || [];
-let logincontainer = []
+let logincontainer =JSON.parse(localStorage.getItem("reg")) || []
 const favdiv = $(".favlist");
 
 const gallery = [
@@ -384,5 +384,21 @@ closee.on('click' , ()=>{
 } )
 
 
-//--------------------------------Login Logic -------------------------------------//
+registerbutt.on('click' , ()=>{
+  localStorage.setItem("reg", JSON.stringify(logicontainer));
+ 
+  logicontainer.push({username : $(Logininput).text() , password : $(Logininputpass).text()})
+  
+  
+  
+})
+console.log($(Logininput).value) 
+  
+//--------------------------------LOGIN Logic -------------------------------------//
 
+registerloop = ()=>{
+const username1= $(Logininput).text()
+const password1= $(Logininputpass).text()
+
+
+}
