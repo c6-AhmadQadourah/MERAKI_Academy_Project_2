@@ -290,7 +290,7 @@ const myfavlist = () => {
   categorydiv.append(favlistbutton);
   favlistbutton.on("click ", () => {
     $(".imgdiv").remove();
-   
+   $('.singlediv').hide()
   
     galleryloop(fav);
     
@@ -305,22 +305,55 @@ myfavlist();
 
 //---------------------------Login page ----------------------------
 
+
+
+//--------------------- Login elements and css----------------------------------------//
+
+const loginbutt= $('<button id = loginmain >LOGIN </button> ')
+$(body).append(loginbutt);  
+
 const logicontainer = $("<div class=logincontainer   ></div>");
-const Logininput = $("<input class = logininput >");
+const Logininput = $(`<input class = logininput  >`);
 const logindiv = $("<div class=logidiv   ></div>");
 const loginusername = $("<p class= username > Username </p>");
 
+
+ 
 const Logininputpass = $("<input type= password class = logininputpass >");
-const loginpass = $("<p class= loginpass > Password  </p>");
+const loginpass = $("<p class= loginpass  > Password  </p>");
 const loginbutton= $("<button class = loginbutton> Login </button> ");
 
-logindiv.append(loginusername);
-logindiv.append(Logininput);
-logindiv.append(loginpass); 
-logindiv.append(Logininputpass);
-logindiv.append(loginbutton);
+const modeldiv = $('<div class= modal ></div> ')
+const contentdiv=$('<div class= modal-content ></div> ') 
+const closee = $(`<span class=close >&times;</span>`)
+ const p = $('<p class=p1  ></p> ')
+modeldiv.append(contentdiv)
+modeldiv.append(closee)
+modeldiv.append(p)
+body.append(modeldiv)
+
+loginbutt.on('click' , ()=> {
 
 
-logicontainer.append(logindiv);
+  $(modeldiv).css('display' , 'block')
+  contentdiv.append(loginusername);
+  contentdiv.append(Logininput);
+  contentdiv.append(loginpass);
+  contentdiv.append(Logininputpass);
+  contentdiv.append(loginbutton);
+  $(Logininput).attr('placeholder' , ' Write Your Email Here !! ')
+  $(Logininputpass).attr('placeholder' , ' Write Your Password Here !! ')
 
-body.append(logicontainer);
+ // contentdiv.append(logindiv)
+  
+
+})
+
+closee.on('click' , ()=>{
+  $(modeldiv).css('display' , 'none')
+} )
+
+//--------------------- Login elements and css End--------------------------------------//
+
+
+//--------------------- register  elements and css --------------------------------------//

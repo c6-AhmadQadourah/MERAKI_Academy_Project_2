@@ -15,10 +15,10 @@ transform: scale(1.05);
 
 .gallery {
   
-  background-image: url(https://free4kwallpapers.com/uploads/wallpaper-cache/cool-black-backgrounds-1300x0-MM-100.jpg);
+ /* background-image: url(https://free4kwallpapers.com/uploads/wallpaper-cache/cool-black-backgrounds-1300x0-MM-100.jpg);*/
   /*  display: grid ;  */
    grid-template-columns: 1fr 1fr 1fr 1fr ;
-  padding: 51px;
+  padding: 5px;
   position: relative;
   left: 15px;
   border-radius: 2%;
@@ -32,9 +32,10 @@ transform: scale(1.05);
     border-color: rgb(0, 0, 0);
   
 }
-*/
+*/ 
 
 .body{
+  background-image: url(https://born.se/wp-content/uploads/2021/10/Black-background_shadow.png);
   margin:0;
   padding:0;
   overflow-x:hidden;
@@ -42,7 +43,7 @@ transform: scale(1.05);
   background-size: 743px ;
 }
 .h1{
-
+color: white;
   cursor: pointer;
   position: relative;
   left: 200px ;
@@ -51,9 +52,9 @@ transform: scale(1.05);
 }
 .header {
   
-  background-image: url(./New\ Project\ \(1\).jpg) ;
+  background-image: url(./New\ Project\ \(1\).png) ;
   color: aqua;
-  height: 108px;
+  height: 103px;
   padding-bottom: 4px; 
   background-repeat: repeat-y ;
   background-size :  1887px 108px  ;
@@ -71,7 +72,7 @@ padding-top: 20px;
  display:flex; 
  flex-direction: column-reverse;
  
-  background-image: url(https://free4kwallpapers.com/uploads/wallpaper-cache/cool-black-backgrounds-1300x0-MM-100.jpg);
+ /* background-image: url(https://free4kwallpapers.com/uploads/wallpaper-cache/cool-black-backgrounds-1300x0-MM-100.jpg);*/
   
   padding: 51px;
   position: relative;
@@ -145,11 +146,14 @@ width: 200px;
   
 } 
 
-.categories{
-  width: 1000px;
+.categories{ 
+  border: white;
+  border-style: dotted;
+  width: 500px;
+  height: 80px;
   text-align: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr .5fr 4fr ;
+  grid-template-columns: 1fr 1fr 1fr  ;
   font-size: x-large;
   padding: 10px;
   color: aliceblue;
@@ -178,51 +182,106 @@ width: 150px;
 
   font-size: large;
     font-weight: bold;
-    background: linear-gradient(to right, #f54a77, #cd5e8c, #eb8ed7);
+    background: linear-gradient(to right, #d0aab3, #86e1ac, #c0cc68);
     border-radius: 50px;
     padding: 10px;
     color: rgb(16, 16, 5);
     margin: 6px;
 }
  
-.logincontainer{
-  width: 450px;
-  position: relative;
-  bottom: 1655px;
-  left: 1250px;
 
-}
-
-
-.logidiv {
-  width: 450px;
-  position: relative;
-  bottom: 100px;;
-}
 .username {
-   width: 100px;
-  color: rgb(255, 255, 255);
-  position: relative;
-  top: 10px;
-  left: 30px;
-  font-size: larger; 
+   
+  font-size: x-large;
+margin-bottom: 5px;
   
 
 }
+
+.logininputpass{
+  width: 200px;
+  border: black;
+  border-style: solid;
+  border-radius:10px ;
+
+}
+
+::placeholder{
+  color: #0a0a93e6;
+}
+
 .loginpass{
-  
-  width: 100px;
-  color: rgb(255, 255, 255);
-  position: relative;
-  top: 10px;
-  left: 30px;
-  font-size: larger; 
+  font-size: x-large;
+margin-bottom: 5px;
+margin-top: 15px;
 }
  
-.loginbutton{
+
+
+.logininput{
+width: 200px;
+border: black;
+border-style: solid;
+border-radius:10px ;
+}
+
+
+#loginmain{
+  cursor: pointer;
+  position:relative;
+  left: 1650px;
+  bottom: 1650px;
+  font-size: large;
+    font-weight: bold;
+    background: linear-gradient(to right, #35302f, #352a36b5, #131718d5);
+    border-radius: 20px;
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    margin: 0px;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content/Box */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center; 
+  color: black;
+  border-radius: 25px;
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 420px;
+  height: 190px
+}
+
+/* The Close Button */
+.close {
 position: relative;
-left: 25px; 
-cursor: pointer;
+left: 1130px;
+bottom: 525px;
+  color: #aaa;
+ font-size: 40px;
+  font-weight: bold;
+}
 
-
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
