@@ -43,12 +43,17 @@ transform: scale(1.05);
   background-size: 743px ;
 }
 .h1{
+  width: 300px;
 color: white;
   cursor: pointer;
   position: relative;
   left: 200px ;
   top: 40px;
 
+}
+
+.title{
+  color :silver
 }
 .header {
   
@@ -184,8 +189,8 @@ width: 200px;
 
 .favlistbutton{
   position: relative;
-top: 0px;
-left: 1660px; 
+bottom:  110px;
+left: 1670px; 
 cursor: pointer;
 width: 150px;
 
@@ -317,7 +322,7 @@ bottom: 525px;
   font-style: italic;
   font-weight: bolder;
   left: 1550px;
-  bottom: 120px;
+  bottom: 230px;
 }
 
 #loginsucs{
@@ -333,7 +338,22 @@ bottom: 525px;
  
 }
 .dark-mode {
-  background-color: rgb(237, 179, 179);
   color: rgb(0, 0, 0);
+  background-color: rgb(237, 179, 179);
+
  background-image: none;
+
+}
+.dark-mode-content{
+  color: rgb(0, 0, 0);
+}
+.dark-mode-button{
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0); 
+}
+.darkorlightimg{
+  position: relative;
+  right: 290px;
+  bottom: 70px;
+  width: 400px;
 }

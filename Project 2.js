@@ -5,7 +5,8 @@ const gallerydiv = $(".gallery");
 const singlediv = $(".singlediv");
 singlediv.hide();
 let fav = JSON.parse(localStorage.getItem("fav")) || [];
-let logincontainer =JSON.parse(localStorage.getItem("reg")) || [] ;
+let logincontainer = JSON.parse(localStorage.getItem("reg")) || [];
+let lightordark = localStorage.getItem("");
 const favdiv = $(".favlist");
 
 const gallery = [
@@ -127,7 +128,7 @@ const galleryloop = (copygallery) => {
     });
     //------------------------------------------------------//
 
-    //-------------------------- Like-----------------------// 
+    //-------------------------- Like-----------------------//
 
     const likebutton = $(`<button  > Like </button>`);
 
@@ -143,7 +144,7 @@ const galleryloop = (copygallery) => {
       this.disabled = true;
     });
 
-    //-----------------Dislike --------------------// 
+    //-----------------Dislike --------------------//
     const dislikebutton = $(`<button  > DisLike </button>`);
 
     $(dislikebutton).addClass("dislikebutton");
@@ -165,34 +166,33 @@ const galleryloop = (copygallery) => {
 
     //------------------------------------------------------//
 
-//-----------------Remove from fav ------------------// 
+    //-----------------Remove from fav ------------------//
 
-    const removefromfav= $(`<button id = ${elem.id}  > remove from fav </button>`);
+    const removefromfav = $(
+      `<button id = ${elem.id}  > remove from fav </button>`
+    );
 
     $(removefromfav).addClass(`removefrom`);
     imgdiv.append(removefromfav);
-    removefromfav.on('click' , (e)=> {
-      fav.filter(function ( elem , i) {
-      if( elem.id === e.target.id ){
-        fav.splice(i, 1)
+    removefromfav.on("click", (e) => {
+      fav.filter(function (elem, i) {
+        if (elem.id === e.target.id) {
+          fav.splice(i, 1);
 
-        $(".imgdiv").remove();
-   $('.singlediv').hide()
-  
-    galleryloop(fav);
-    
-    $('.removefrom').show()
-      localStorage.setItem("fav", JSON.stringify(fav));
-     
-      }
+          $(".imgdiv").remove();
+          $(".singlediv").hide();
 
-      })
-      
-    })
+          galleryloop(fav);
+
+          $(".removefrom").show();
+          localStorage.setItem("fav", JSON.stringify(fav));
+        }
+      });
+    });
     //------------------------------------------------------//
-    
+
     // -------------css--------------
-    $(removefromfav).hide()
+    $(removefromfav).hide();
     $(imageid).hide();
     $(dislikebutton).hide();
     $(likebutton).hide();
@@ -209,7 +209,7 @@ const galleryloop = (copygallery) => {
     $(`.gallery`).css("display", "grid");
 
     $(title).css("width", "50%");
-    $(title).css("color", "silver");
+    //$(title).css("color", "silver");
     $(image).css("width", "400");
     $(image).height("600");
     $(image).css("border-radius", "10%");
@@ -264,7 +264,6 @@ const categoriesloop = () => {
       });
 
       galleryloop(aa);
-      
     });
 
     $(categorydiv).append(name);
@@ -284,7 +283,7 @@ const back = $(".h1").on("click", () => {
   singlediv.hide();
   $(".fimgdiv").hide();
   galleryloop(gallery);
-}); 
+});
 
 //---------------------------------BACK LOOP END ----------------------------------------//
 
@@ -292,16 +291,14 @@ const back = $(".h1").on("click", () => {
 
 const myfavlist = () => {
   favlistbutton = $("<button class = favlistbutton > My Fav List</button>");
-  $('.header').append(favlistbutton);
+  $(".header").append(favlistbutton);
   favlistbutton.on("click ", () => {
     $(".imgdiv").remove();
-   $('.singlediv').hide()
-  
-    galleryloop(fav);
-    
-    $('.removefrom').show()
-  
+    $(".singlediv").hide();
 
+    galleryloop(fav);
+
+    $(".removefrom").show();
   });
 };
 myfavlist();
@@ -310,100 +307,89 @@ myfavlist();
 
 //---------------------------Login page ----------------------------
 
-
-
 //---------------------------- Login elements and css----------------------------------------//
-     //------------------------------ Global Scope ----------------------------------//
+//------------------------------ Global Scope ----------------------------------//
 
-
-const loginbutt= $('<button id = loginmain >LOGIN </button> ')
-$(body).append(loginbutt);  
+const loginbutt = $("<button id = loginmain >LOGIN </button> ");
+$(body).append(loginbutt);
 
 const logicontainer = $("<div class=logincontainer   ></div>");
 const Logininput = $(`<input id=text class = logininput  >`);
 const logindiv = $("<div class=logidiv   ></div>");
 const loginusername = $("<p class= username > Username </p>");
 
-
- 
-const Logininputpass = $("<input type= password id=pass  class = logininputpass >");
+const Logininputpass = $(
+  "<input type= password id=pass  class = logininputpass >"
+);
 const loginpass = $("<p class= loginpass  > Password  </p>");
-const loginbutton= $("<button class = loginbutton> Login </button> ");
-const registerbutt= $("<button class = registerbutton> Register </button> ");
+const loginbutton = $("<button class = loginbutton> Login </button> ");
+const registerbutt = $("<button class = registerbutton> Register </button> ");
 
-const modeldiv = $('<div class= modal ></div> ')
-const contentdiv=$('<div class= modal-content ></div> ') 
-const closee = $(`<span class=close >&times;</span>`)
- const p = $('<p class=p1  ></p> ')
-modeldiv.append(contentdiv)
-modeldiv.append(closee)
-modeldiv.append(p)
-body.append(modeldiv)
+const modeldiv = $("<div class= modal ></div> ");
+const contentdiv = $("<div class= modal-content ></div> ");
+const closee = $(`<span class=close >&times;</span>`);
+const p = $("<p class=p1  ></p> ");
+modeldiv.append(contentdiv);
+modeldiv.append(closee);
+modeldiv.append(p);
+body.append(modeldiv);
 
-loginbutt.on('click' , ()=> {
-
-
-  $(modeldiv).css('display' , 'block')
+loginbutt.on("click", () => {
+  $(modeldiv).css("display", "block");
   contentdiv.append(loginusername);
   contentdiv.append(Logininput);
   contentdiv.append(loginpass);
   contentdiv.append(Logininputpass);
   contentdiv.append(loginbutton);
-  $(registerbutt).hide()
-  $(loginbutton).show()
-  $(Logininput).attr('placeholder' , ' Write Your Email Here !! ')
-  $(Logininputpass).attr('placeholder' , ' Write Your Password Here !! ')
+  $(registerbutt).hide();
+  $(loginbutton).show();
+  $(Logininput).attr("placeholder", " Write Your Email Here !! ");
+  $(Logininputpass).attr("placeholder", " Write Your Password Here !! ");
 
- // contentdiv.append(logindiv)
-  
+  // contentdiv.append(logindiv)
+});
 
-})
-
-closee.on('click' , ()=>{
-  $(modeldiv).css('display' , 'none')
-} )
+closee.on("click", () => {
+  $(modeldiv).css("display", "none");
+});
 
 //--------------------- Login elements and css End--------------------------------------//
 
-
 //--------------------- register  elements and css --------------------------------------//
-const registerbutton= $('<button id = registerbutton >Join Us! </button> ')
-$(body).append(registerbutton); 
+const registerbutton = $("<button id = registerbutton >Join Us! </button> ");
+$(body).append(registerbutton);
 
-registerbutton.on('click' , ()=> { 
+registerbutton.on("click", () => {
   contentdiv.append(loginusername);
   contentdiv.append(Logininput);
   contentdiv.append(loginpass);
   contentdiv.append(Logininputpass);
   contentdiv.append(registerbutt);
-  $(registerbutt).show()
-  $(loginbutton).hide()
+  $(registerbutt).show();
+  $(loginbutton).hide();
 
-  
+  $(modeldiv).css("display", "block");
 
-  $(modeldiv).css('display' , 'block')
- 
-  $(Logininput).attr('placeholder' , ' Write Your Email Here !! ')
-  $(Logininputpass).attr('placeholder' , ' Write Your Password Here !! ')
+  $(Logininput).attr("placeholder", " Write Your Email Here !! ");
+  $(Logininputpass).attr("placeholder", " Write Your Password Here !! ");
+});
+closee.on("click", () => {
+  $(modeldiv).css("display", "none");
+});
 
-})
-closee.on('click' , ()=>{
-  $(modeldiv).css('display' , 'none')
-} )
-
-
-registerbutt.on('click' , ()=>{
-
- 
-  if($('#text').val().length < 6 ){ 
-    const lessthan6 = $('<p class = lessthan6 > Your Username must be  at least 6 characters ! </p>')
-    contentdiv.append(lessthan6)
-  }
- else if  ($('#pass').val().length < 8 ){
-  const lessthan8 = $('<p class = lessthan8 > Your Password must be  at least 8 characters ! </p>')
-  contentdiv.append(lessthan8)
- } 
-/*
+registerbutt.on("click", () => {
+  if ($("#text").val().length < 6) {
+    const lessthan6 = $(
+      "<p class = lessthan6 > Your Username must be  at least 6 characters ! </p>"
+    );
+    contentdiv.append(lessthan6);
+  } else if ($("#pass").val().length < 8) {
+    const lessthan8 = $(
+      "<p class = lessthan8 > Your Password must be  at least 8 characters ! </p>"
+    );
+    contentdiv.append(lessthan8);
+  } else if ($("#text").val().length >= 6 && $("#pass").val().length >= 8) {
+  /*
  else if($('#text').val().length >= 6 && $('#pass').val().length >= 8 ){
 
   logincontainer.forEach(function(elem ,i ){
@@ -417,94 +403,65 @@ registerbutt.on('click' , ()=>{
   })
 }
 */
+    const regsucssfull = $(
+      `<p id=loginsucs class = modal-content> Registered Sucssfull </p>`
+    );
+    $(contentdiv).css("display", "none");
+    $(modeldiv).append(regsucssfull);
+    $(regsucssfull).css("display", "block");
+    $(modeldiv).hide(4000);
 
-else if ($('#text').val().length >= 6 && $('#pass').val().length >= 8){
+    logincontainer.push({
+      username: $("#text").val(),
+      password: $("#pass").val(),
+    });
 
-
-    const regsucssfull = $(`<p id=loginsucs class = modal-content> Registered Sucssfull </p>`)
-  $(contentdiv).css('display' , 'none')
-  $(modeldiv).append(regsucssfull)
-  $(regsucssfull).css('display' , 'block')
-  $(modeldiv).hide(4000)
- 
-
-
-  logincontainer.push({username : $('#text').val() , password : $('#pass').val()})
-  
-  localStorage.setItem("reg", JSON.stringify(logincontainer));
- 
-}
-   
- 
-})
-
+    localStorage.setItem("reg", JSON.stringify(logincontainer));
+  }
+});
 
 //--------------------------------LOGIN Logic -------------------------------------//
 //------------------------------ GlobalScope End-----------------------------------//
-registerloop = ()=>{
+registerloop = () => {
+  const loop = logincontainer.forEach(function (elem, i) {
+    console.log(elem.username);
+    loginbutton.on("click", () => {
+      if (
+        elem.username == $("#text").val() &&
+        elem.password == $("#pass").val()
+      ) {
+        //alert('Login Sucssfull')
 
+        const loginsucssfull = $(
+          `<p id=loginsucs class = modal-content> Login Sucssfull </p>`
+        );
 
-const loop =logincontainer.forEach(function(elem , i){
+        $(contentdiv).css("display", "none");
+        $(modeldiv).append(loginsucssfull);
+        $(loginsucssfull).css("display", "block");
+        $(modeldiv).hide(4000);
+        $(registerbutton).hide();
+        $(loginbutt).hide();
 
- 
-
-
-
-
-
-
-
-
-
-console.log(elem.username)
-  loginbutton.on('click' , ()=> {
-    if(elem.username == $('#text').val() && elem.password == $('#pass').val() ){
-      //alert('Login Sucssfull')
-      
-      const loginsucssfull = $(`<p id=loginsucs class = modal-content> Login Sucssfull </p>`) 
-      
-
-      $(contentdiv).css('display' , 'none')
-      $(modeldiv).append(loginsucssfull)
-      $(loginsucssfull).css('display' , 'block')
-      $(modeldiv).hide(4000)
-      $(registerbutton).hide()
-      $(loginbutt).hide() 
-      
-      const welcome = $(`<p class = welcome> Welcome ${elem.username} </p>`)
-      $('.header').append(welcome)
-      
-      
-   }
-  
-  })
-
-})
-
- 
-}
-registerloop()
-
-
+        const welcome = $(`<p class = welcome> Welcome ${elem.username} </p>`);
+        $(".header").append(welcome);
+      }
+    });
+  });
+};
+registerloop();
 
 //-------------------------------DARK/LIGHT BUTTON-------------------------------//
-const darklightbutton = $(`<button class =darklight > Light </button>`)
-$('.header').append(darklightbutton)
-darklightbutton.on('click' , ()=>{
+const darklightpic = $(`<img class=darkorlightimg src=https://lh4.googleusercontent.com/rPrvlpTtIo9pdhKqDHYf6JdRyNyFh-9pEl4IH6Un0gHF3pCtS2aPUdBT_zJPGr0lsA3M9ECN9Dqb-PgAH4arPG3Q9QweyNAT_2cET4-2b4HbFPDRiCclqJrcPuOCAF9uiTme2D0d />`);
+$(".header").append(darklightpic);
+
+darklightpic.on("click", () => {
+  $(body).toggleClass("dark-mode");
+  $(".categories").toggleClass("dark-mode-content");
+  $(".discreptiondiv").toggleClass("dark-mode-content");
+  $(".title").toggleClass("dark-mode-content");
+  $(".h1").toggleClass("dark-mode-content");
   
-  $(body).css('background-image', 'none')
-$(body).css('background-color' , 'white')
-$('*').css('color' , 'black')
-$('.categories').css('border','dotted')
-$('.categories').css('border - color','black')
-$(darklightbutton).text('Dark')
-$(darklightbutton).css('background-color' , 'black')
-$(darklightbutton).css('color' , 'white')
 
 
-darklightbutton.on('click', ()=> {
-
-  
-})
-
-})
+});
