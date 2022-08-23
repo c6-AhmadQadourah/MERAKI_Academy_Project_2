@@ -417,6 +417,7 @@ registerbutt.on('click' , ()=>{
   })
 }
 */
+
 else if ($('#text').val().length >= 6 && $('#pass').val().length >= 8){
 
 
@@ -483,3 +484,27 @@ console.log(elem.username)
  
 }
 registerloop()
+
+
+
+//-------------------------------DARK/LIGHT BUTTON-------------------------------//
+const darklightbutton = $(`<button class =darklight > Light </button>`)
+$('.header').append(darklightbutton)
+darklightbutton.on('click' , ()=>{
+  
+  $(body).css('background-image', 'none')
+$(body).css('background-color' , 'white')
+$('*').css('color' , 'black')
+$('.categories').css('border','dotted')
+$('.categories').css('border - color','black')
+$(darklightbutton).text('Dark')
+$(darklightbutton).css('background-color' , 'black')
+$(darklightbutton).css('color' , 'white')
+
+
+darklightbutton.on('click', ()=> {
+
+  
+})
+
+})

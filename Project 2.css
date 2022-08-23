@@ -148,7 +148,7 @@ width: 200px;
 
 .categories{ 
   border: white;
-  border-style: dotted;
+  border-style:dotted ;
   width: 500px;
   height: 80px;
   text-align: center;
@@ -331,4 +331,9 @@ bottom: 525px;
   font-weight: bold;
   font-style: italic;
  
+}
+.dark-mode {
+  background-color: rgb(237, 179, 179);
+  color: rgb(0, 0, 0);
+ background-image: none;
 }
