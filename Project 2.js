@@ -394,7 +394,7 @@ closee.on('click' , ()=>{
 
 registerbutt.on('click' , ()=>{
 
-  
+ 
   if($('#text').val().length < 6 ){ 
     const lessthan6 = $('<p class = lessthan6 > Your Username must be  at least 6 characters ! </p>')
     contentdiv.append(lessthan6)
@@ -402,22 +402,59 @@ registerbutt.on('click' , ()=>{
  else if  ($('#pass').val().length < 8 ){
   const lessthan8 = $('<p class = lessthan8 > Your Password must be  at least 8 characters ! </p>')
   contentdiv.append(lessthan8)
- }
- else if($('#text').val().length > 6 && $('#pass').val().length > 8 ){
+ } 
+/*
+ else if($('#text').val().length >= 6 && $('#pass').val().length >= 8 ){
+
+  logincontainer.forEach(function(elem ,i ){
+
+    if ($('#text').val() === elem.username ){
+       const existed = $('<p class = existed > Username is already existed !  </p>')
+      contentdiv.append(existed)
+      console.log(elem.username) 
+    }
+    
+  })
+}
+*/
+else if ($('#text').val().length >= 6 && $('#pass').val().length >= 8){
+
+
+    const regsucssfull = $(`<p id=loginsucs class = modal-content> Registered Sucssfull </p>`)
+  $(contentdiv).css('display' , 'none')
+  $(modeldiv).append(regsucssfull)
+  $(regsucssfull).css('display' , 'block')
+  $(modeldiv).hide(4000)
+ 
+
+
   logincontainer.push({username : $('#text').val() , password : $('#pass').val()})
   
   localStorage.setItem("reg", JSON.stringify(logincontainer));
- }
-  
+ 
+}
    
  
 })
+
+
 //--------------------------------LOGIN Logic -------------------------------------//
 //------------------------------ GlobalScope End-----------------------------------//
 registerloop = ()=>{
 
 
 const loop =logincontainer.forEach(function(elem , i){
+
+ 
+
+
+
+
+
+
+
+
+
 console.log(elem.username)
   loginbutton.on('click' , ()=> {
     if(elem.username == $('#text').val() && elem.password == $('#pass').val() ){
@@ -436,8 +473,9 @@ console.log(elem.username)
       const welcome = $(`<p class = welcome> Welcome ${elem.username} </p>`)
       $('.header').append(welcome)
       
+      
    }
-
+  
   })
 
 })
