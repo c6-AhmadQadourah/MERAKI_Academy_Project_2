@@ -8,6 +8,16 @@
   left:  1250px;
 }
 
+
+
+#registerbutton:hover{
+  transform: scale(1.1);
+
+}
+#loginmain:hover {
+  transform: scale(1.1);
+
+}
 img:hover{
 transform: scale(1.05);
 }
@@ -54,7 +64,7 @@ color: white;
 
 .title{
   
-  color :silver
+  color :rgb(192, 192, 192)
 }
 .header {
   
@@ -90,10 +100,10 @@ padding-top: 20px;
 .favbutton{
   font-size: large;
     font-weight: bold;
-    background: linear-gradient(to right, #bd7e68, #549cc9, #7a7dd9);
+    background: linear-gradient(to right,#35302f, #352a36b5, #131718d5);
     border-radius: 4px;
     padding: 10px;
-    color: rgb(16, 16, 5);
+    color: rgb(77, 140, 189);
     margin: 6px;
     cursor: pointer;
 }
@@ -107,10 +117,10 @@ width: 200px;
 cursor: pointer;
   font-size: large;
     font-weight: bold;
-    background: linear-gradient(to right, #ddbeb4, #0b4fee, #7ad4d9);
+    background: linear-gradient(to right,#35302f, #352a36b5, #131718d5);
     border-radius: 20px;
     padding: 10px;
-    color: rgb(16, 16, 5);
+    color: rgb(100, 205, 76);
     margin: 6px;
 }
 .dislikebutton{
@@ -122,10 +132,10 @@ width: 200px;
 
   font-size: large;
     font-weight: bold;
-    background: linear-gradient(to right, #ef997d, #e360f2, #7ad4d9);
+    background: linear-gradient(to right,#35302f, #352a36b5, #131718d5);
     border-radius: 20px;
     padding: 10px;
-    color: rgb(16, 16, 5);
+    color: rgb(215, 49, 77);
     margin: 6px;
 }
 
@@ -187,8 +197,12 @@ width: 200px;
   border-radius: 2%;
   word-wrap: initial;
 }
-
+.favlistbutton:hover{
+  transform: scaleY(1.2);
+  
+}
 .favlistbutton{
+  
   position: relative;
 bottom:  22px;
 left: 1670px; 
@@ -197,10 +211,10 @@ width: 150px;
 
   font-size: large;
     font-weight: bold;
-    background: linear-gradient(to right, #d0aab3, #86e1ac, #c0cc68);
+    background: linear-gradient(to right,#35302f, #352a36b5, #131718d5);
     border-radius: 50px;
     padding: 10px;
-    color: rgb(16, 16, 5);
+    color: rgb(120, 130, 208);
     margin: 6px;
 }
  
@@ -340,15 +354,17 @@ bottom: 525px;
 }
 .dark-mode {
   color: rgb(0, 0, 0);
-  background-color: rgb(237, 179, 179);
+ /* background-color: rgb(237, 179, 179);*/
 
- background-image: none;
+ background-image: url(https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-72778.jpg?w=2000)
 
 }
 .dark-mode-content{
+  border-color: black;
   color: rgb(0, 0, 0);
 }
 .dark-mode-button{
+  
   color: rgb(255, 255, 255);
   background-color: rgb(0, 0, 0); 
 }

@@ -140,6 +140,8 @@ const galleryloop = (copygallery) => {
       // console.log(this);
       // console.log(likebutton);
       $(likebutton).css("background", "green");
+      $(likebutton).css("color", "black")
+
       $(likebutton).text("Liked !");
       this.disabled = true;
     });
@@ -152,6 +154,7 @@ const galleryloop = (copygallery) => {
     // console.log(galleryall )
     dislikebutton.on("click", function () {
       $(dislikebutton).css("background", "red");
+      $(dislikebutton).css("color", "black")
       $(dislikebutton).text("disLiked !");
       this.disabled = true;
 
