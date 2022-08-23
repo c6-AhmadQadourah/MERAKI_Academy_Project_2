@@ -452,7 +452,8 @@ registerloop = () => {
 registerloop();
 
 //-------------------------------DARK/LIGHT BUTTON-------------------------------//
-const darklightpic = $(`<img class=darkorlightimg src=https://lh4.googleusercontent.com/rPrvlpTtIo9pdhKqDHYf6JdRyNyFh-9pEl4IH6Un0gHF3pCtS2aPUdBT_zJPGr0lsA3M9ECN9Dqb-PgAH4arPG3Q9QweyNAT_2cET4-2b4HbFPDRiCclqJrcPuOCAF9uiTme2D0d />`);
+
+const darklightpic = $(`<img class=darkorlightimg  src=3_8(1).png>`);
 $(".header").append(darklightpic);
 
 darklightpic.on("click", () => {
