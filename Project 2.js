@@ -176,9 +176,14 @@ const galleryloop = (copygallery) => {
       if( elem.id === e.target.id ){
         fav.splice(i, 1)
 
-
+        $(".imgdiv").remove();
+   $('.singlediv').hide()
+  
+    galleryloop(fav);
+    
+    $('.removefrom').show()
       localStorage.setItem("fav", JSON.stringify(fav));
-
+     
       }
 
       })
@@ -242,7 +247,7 @@ galleryloop(gallery);
 const categoriesloop = () => {
   for (let i = 0; i < categoriess.length; i++) {
     const name = $(`<h5 >${categoriess[i].name} </h5>`);
-    $(name).addClass(`${categoriess[i].name}`);
+    $(name).addClass(`name`);
 
     $(name).on("click", function (e) {
       // console.log($(name).text()   )
@@ -307,7 +312,9 @@ myfavlist();
 
 
 
-//--------------------- Login elements and css----------------------------------------//
+//---------------------------- Login elements and css----------------------------------------//
+     //------------------------------ Global Scope ----------------------------------//
+
 
 const loginbutt= $('<button id = loginmain >LOGIN </button> ')
 $(body).append(loginbutt);  
@@ -362,6 +369,7 @@ closee.on('click' , ()=>{
 //--------------------- register  elements and css --------------------------------------//
 const registerbutton= $('<button id = registerbutton >Join Us! </button> ')
 $(body).append(registerbutton); 
+
 registerbutton.on('click' , ()=> { 
   contentdiv.append(loginusername);
   contentdiv.append(Logininput);
@@ -385,8 +393,10 @@ closee.on('click' , ()=>{
 
 
 registerbutt.on('click' , ()=>{
+
+  
   if($('#text').val().length < 6 ){ 
-    const lessthan6 = $('<p class = lessthan6 > Enter 6 characters at least ! </p>')
+    const lessthan6 = $('<p class = lessthan6 > Your Username must be  at least 6 characters ! </p>')
     contentdiv.append(lessthan6)
   }
  else if  ($('#pass').val().length < 8 ){
@@ -403,7 +413,7 @@ registerbutt.on('click' , ()=>{
  
 })
 //--------------------------------LOGIN Logic -------------------------------------//
-
+//------------------------------ GlobalScope End-----------------------------------//
 registerloop = ()=>{
 
 
@@ -411,17 +421,24 @@ const loop =logincontainer.forEach(function(elem , i){
 console.log(elem.username)
   loginbutton.on('click' , ()=> {
     if(elem.username == $('#text').val() && elem.password == $('#pass').val() ){
-      alert('Login Sucssfull')
-      $(modeldiv).css('display' , 'none')
+      //alert('Login Sucssfull')
+      
+      const loginsucssfull = $(`<p id=loginsucs class = modal-content> Login Sucssfull </p>`) 
+      
+
+      $(contentdiv).css('display' , 'none')
+      $(modeldiv).append(loginsucssfull)
+      $(loginsucssfull).css('display' , 'block')
+      $(modeldiv).hide(4000)
       $(registerbutton).hide()
-      $(loginbutt).hide()
+      $(loginbutt).hide() 
+      
       const welcome = $(`<p class = welcome> Welcome ${elem.username} </p>`)
       $('.header').append(welcome)
       
    }
 
   })
-
 
 })
 

@@ -157,7 +157,16 @@ width: 200px;
   font-size: x-large;
   padding: 10px;
   color: aliceblue;
+ 
+} 
+.name{
+
+  cursor: pointer;
+  
 }
+.name:hover{
+  transform: scale(1.6);
+  }
 
 .catdiv{
 
@@ -310,3 +319,26 @@ bottom: 525px;
   left: 1550px;
   bottom: 120px;
 }
+
+#loginsucs{
+  position: relative;
+  height: 50px;
+  color: #0b4fee;
+  font-size: xx-large;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-style: italic;
+ /* animation: hideAnimation 0s ease-in 2s;
+  animation-fill-mode: forwards;*/
+}
+/*
+@keyframes hideAnimation {
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+*/
