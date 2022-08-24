@@ -8,7 +8,11 @@
   left:  1250px;
 }
 
-
+ .img{
+  width: 400px;
+  height: 600px;
+  border-radius: 10%;
+ }
 
 #registerbutton:hover{
   transform: scale(1.1);
@@ -63,8 +67,12 @@ color: white;
 }
 
 .title{
+  width: 50%;
+  color :rgb(192, 192, 192); 
+  text-align: center;
+  position: relative;
+  left: 80px;
   
-  color :rgb(192, 192, 192)
 }
 .header {
   
@@ -217,7 +225,11 @@ width: 150px;
     color: rgb(120, 130, 208);
     margin: 6px;
 }
- 
+.removefrom{
+  position: relative;
+  top: 750px;
+  left: 150px;
+}
 
 .username {
    
@@ -379,3 +391,94 @@ bottom: 525px;
   
   
 }
+
+ /*------------------------Media-------------------------------*/ 
+ @media  (max-width: 600px) {
+
+  .body{
+   
+    overflow: auto;
+  }
+.darkorlightimg{
+  position: relative;
+  bottom: 150px;
+}
+
+.categories{
+  display: flex;
+    width: 170px;
+    flex-direction: row;
+
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: baseline;
+    border-style: none;
+    padding: 0px;
+    font-size: small;
+    
+  
+}
+.h1{
+  width: 100px;
+
+}
+.name {
+  width: 50px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.gallery{
+  display: grid;
+  grid-template-columns: 1fr 1fr  ;
+
+ 
+}
+.img{
+  width: 120px;
+  height: 200px
+  
+}
+.title{
+  position: relative;
+  left: 0px;
+}
+.discreptiondiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  left: 20px;
+  text-align: center;
+  font-size: x-small;
+}
+
+.favlistbutton{
+  left: 0%;
+  right: 1000px;
+  top: 0px;
+  bottom: 0px;
+ 
+  
+}
+
+#loginmain{
+  position: relative;
+  bottom: 1600px;
+    left: 150px;
+    font-size: small;
+
+}
+
+#registerbutton{
+  position: relative;
+  bottom: 1600px;
+    left: 150px;
+    font-size: small;
+}
+.removefrom{
+  position: relative;
+  top: 400px;
+  left: 0px;
+}
+
+ }

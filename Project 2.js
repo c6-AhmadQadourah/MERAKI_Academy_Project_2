@@ -1,3 +1,6 @@
+
+
+
 const body = $("body");
 $(body).addClass("body");
 const categorydiv = $(".categories");
@@ -202,20 +205,20 @@ const galleryloop = (copygallery) => {
     $(favbutton).hide();
     $(imgdiv).append(imageid);
     $(imgdiv).append(title);
-    $(title).css("text-align", "center");
-    $(title).css("position", "relative");
-    $(title).css({ left: 80 });
+   // $(title).css("text-align", "center");
+   // $(title).css("position", "relative");
+   // $(title).css({ left: 80 });
     $(imgdiv).append(image);
 
     $(imgdiv).append(discreptiondiv);
     $(`.gallery`).append($(imgdiv));
     $(`.gallery`).css("display", "grid");
 
-    $(title).css("width", "50%");
+   // $(title).css("width", "50%");
     //$(title).css("color", "silver");
-    $(image).css("width", "400");
-    $(image).height("600");
-    $(image).css("border-radius", "10%");
+   // $(image).css("width", "400");
+    //$(image).height("600");
+   // $(image).css("border-radius", "10%");
     //-------------------------------------------
 
     // ----------------- info page -------
@@ -469,3 +472,9 @@ darklightpic.on("click", () => {
 
 
 });
+
+
+
+
+
+
